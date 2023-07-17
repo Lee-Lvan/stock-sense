@@ -1,3 +1,5 @@
+PROBLEM - MONGOOSE DIDNT LIKE THAT THERE WAS A DB COLLECTION ALREADY AND WOULD ALWAYS MAKE A NEW COLLECTION AND RETURN THE OBVIOUSY EMPTY ARRAY INSTEAD OF LOOKING AT WHAT WAS ALREADY THERE
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
