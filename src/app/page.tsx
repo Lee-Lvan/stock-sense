@@ -21,7 +21,13 @@ export default async function Home() {
       <h2>watchlist</h2>
       <ul>
         {watchlistItems.map(item => {
-          return <li key={item._id}>{item.name}</li>;
+          return (
+            <>
+              <Link key={item._id} href={item.name}>
+                <p>{item.name}</p>
+              </Link>
+            </>
+          );
         })}
       </ul>
       <p>
