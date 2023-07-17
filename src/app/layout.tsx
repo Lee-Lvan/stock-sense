@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { connectToMongo } from './utils/connectToMongo';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
   title: 'Stock Sense',
   description: 'Created by Lee and Lvan',
 };
+
+connectToMongo();
 
 export default function RootLayout({
   children,
