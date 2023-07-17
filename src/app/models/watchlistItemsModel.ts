@@ -1,6 +1,7 @@
 import { Schema, model, models } from 'mongoose';
+import { IWatchlistItem } from '../interfaces/IWatchlistItem';
 
-const watchlistItemsSchema = new Schema({
+const watchlistItemsSchema = new Schema<IWatchlistItem>({
   name: String,
 });
 
