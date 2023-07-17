@@ -1,26 +1,26 @@
-import Image from 'next/image';
-import styles from './page.module.css';
 import Link from 'next/link';
+import { getDefaultSymbols } from '@/lib/twelvedata';
 
-export default function Home() {
+export default async function Home() {
+  const data = await getDefaultSymbols();
+  const defaultSymbols = Object.values(data);
+
   return (
     <>
       <ul>
         <li>trade</li>
         <li>learn</li>
       </ul>
-      <input
-        type="text"
-        name="searchbar"
-        id="searchbar"
-        placeholder="Search for a stock"
-      />
+      <input type="text" name="searchbar" id="searchbar" placeholder="Search for a stock" />
       <h2>watchlist</h2>
       <ul>
-        <li>tsla</li>
-        <li>tsla</li>
-        <li>tsla</li>
-        <li>tsla</li>
+        {defaultSymbols.map((symbol: any, i) => (
+          <li key={symbol.meta.symbol+i}>
+            <Link href={`/${symbol.meta.symbol}`}>{symbol.meta.symbol}</Link>
+            <span>$ {symbol.values[0].close}</span>
+          </li>
+        )
+        )}
       </ul>
       <p>
         <Link href={'login'}>Login</Link> or

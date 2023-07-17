@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     .db('stock-sense')
     .collection('watchlist-items');
   const data = await userCollection.findOne({});
-  console.log(data);
+  // console.log(data);
 })();
 
 export default function RootLayout({
