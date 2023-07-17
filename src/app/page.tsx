@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import Link from 'next/link';
+import getWatchlist from './api/watchlist/getWatchlistItems';
 
-export default function Home() {
+export default async function Home() {
+  const watchlistItems = await getWatchlist();
+
   return (
     <>
       <ul>
@@ -17,10 +20,9 @@ export default function Home() {
       />
       <h2>watchlist</h2>
       <ul>
-        <li>tsla</li>
-        <li>tsla</li>
-        <li>tsla</li>
-        <li>tsla</li>
+        {watchlistItems.map(item => {
+          return <li key={item._id}>{item.name}</li>;
+        })}
       </ul>
       <p>
         <Link href={'login'}>Login</Link> or
