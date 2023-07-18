@@ -1,4 +1,4 @@
-export type SymbolT = {
+export type GraphSymbolT = {
   meta: MetaT;
   values: ValuesT[];
   status: string;
@@ -22,3 +22,14 @@ type MetaT = {
   mic_code: string;
   type: string;
 };
+
+
+export interface IWatchlistData  {
+  symbol: string;
+  name: string;
+  open: string;
+  high: string;
+  low: string;
+  close: string;
+  volume: string;
+}

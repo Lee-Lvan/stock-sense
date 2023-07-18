@@ -1,24 +1,22 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import { getDefaultSymbols } from '@/lib/twelvedata';
+import { getWatchlistData } from '@/app/utils/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
-import { SymbolT } from './types/Symbol.type';
+import { IWatchlistData  } from './types/Symbol.type';
 
 export default async function Home() {
-  const data = await getDefaultSymbols();
-  const defaultSymbols: SymbolT[] = Object.values(data);
+  const userWatchlist = await getWatchlist(); // update this when we have profiles
+  console.log(userWatchlist);
+  const data = await getWatchlistData(userWatchlist);
+  const symbolData: IWatchlistData [] = Object.values(data);
+  console.log(symbolData);
   return (
     <>
       <ul>
         <li>trade</li>
         <li>learn</li>
       </ul>
-      <input
-        type="text"
-        name="searchbar"
-        id="searchbar"
-        placeholder="Search for a stock"
-      />
+      <input type="text" name="searchbar" id="searchbar" placeholder="Search for a stock" />
       <h2>Portfolio</h2>
       <p>
         <Link href={'login'}>Login</Link> or
@@ -26,14 +24,13 @@ export default async function Home() {
       </p>
       <h2>Watchlist</h2>
       <ul>
-        {defaultSymbols.map((symbol, i) => (
-          <li key={symbol.meta.symbol + i}>
-            <Link href={`/${symbol.meta.symbol}`}>{symbol.meta.symbol}</Link>
-            <span>$ {symbol.values[0].close}</span>
+        {symbolData.map(data => (
+          <li key={data.symbol}>
+            <Link href={`/${data.symbol}`}>{data.symbol}</Link>
+            <span>$ {data.close}</span>
           </li>
         ))}
       </ul>
-      
     </>
   );
 }

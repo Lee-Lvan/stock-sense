@@ -6,5 +6,5 @@ const watchlistItemsSchema = new Schema<IWatchlistItem>({
   name: { type: String, required: true },
 });
 
-export default models.WatchlistItem ||
-  model('WatchlistItem', watchlistItemsSchema);
+export default models.watchlistitems ||
+  model('watchlistitems', watchlistItemsSchema);
