@@ -1,7 +1,7 @@
-import watchlistItems from '../../models/watchlistItemsModel';
+import WatchlistItem from "../../models/watchlistItemsModel";
 
 const getWatchlist = async () => {
-  return await watchlistItems.find({});
+  return await WatchlistItem.find({});
 };
 
 export default getWatchlist;
