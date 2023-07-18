@@ -2,8 +2,9 @@ import { Schema, model, models } from 'mongoose';
 import { IWatchlistItem } from '../interfaces/IWatchlistItem';
 
 const watchlistItemsSchema = new Schema<IWatchlistItem>({
-  name: String,
+  id: { type: String, required: true },
+  name: { type: String, required: true },
 });
 
-export default models.watchlistItems ||
-  model('watchlistItems', watchlistItemsSchema);
+export default models.WatchlistItem ||
+  model('WatchlistItem', watchlistItemsSchema);
