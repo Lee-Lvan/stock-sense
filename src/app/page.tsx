@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import Image from 'next/image';
 import { getDefaultSymbols } from '@/lib/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
 
 export default async function Home() {
-  const watchlistItems = await getWatchlist();
   const data = await getDefaultSymbols();
   const defaultSymbols = Object.values(data);
   return (
@@ -22,7 +20,7 @@ export default async function Home() {
       />
       <h2>watchlist</h2>
       <ul>
-        {defaultSymbols.map((symbol: any, i) => (
+        {defaultSymbols.map((symbol, i) => (
           <li key={symbol.meta.symbol + i}>
             <Link href={`/${symbol.meta.symbol}`}>{symbol.meta.symbol}</Link>
             <span>$ {symbol.values[0].close}</span>
