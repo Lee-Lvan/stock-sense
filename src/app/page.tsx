@@ -19,7 +19,12 @@ export default async function Home() {
         id="searchbar"
         placeholder="Search for a stock"
       />
-      <h2>watchlist</h2>
+      <h2>Portfolio</h2>
+      <p>
+        <Link href={'login'}>Login</Link> or
+        <Link href={'signup'}>signup</Link> to see your portfolio
+      </p>
+      <h2>Watchlist</h2>
       <ul>
         {defaultSymbols.map((symbol, i) => (
           <li key={symbol.meta.symbol + i}>
@@ -28,10 +33,7 @@ export default async function Home() {
           </li>
         ))}
       </ul>
-      <p>
-        <Link href={'login'}>Login</Link> or
-        <Link href={'signup'}>signup</Link> to see your portfolio
-      </p>
+      
     </>
   );
 }
