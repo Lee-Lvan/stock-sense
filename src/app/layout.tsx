@@ -5,7 +5,7 @@ import { MongoClient } from 'mongodb';
 
 const inter = Inter({ subsets: ['latin'] });
 const uri = process.env.MONGO_URI as string;
-console.log(uri);
+// console.log(uri);
 
 export const metadata: Metadata = {
   title: 'Stock Sense',
