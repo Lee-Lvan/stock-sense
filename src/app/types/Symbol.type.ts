@@ -4,7 +4,7 @@ export type GraphSymbolT = {
   status: string;
 };
 
-type ValuesT = {
+export type ValuesT = {
   datetime: string;
   open: string;
   high: string;
