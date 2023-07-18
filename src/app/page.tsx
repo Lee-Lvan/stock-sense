@@ -7,24 +7,20 @@ import { SymbolT } from './types/Symbol.type';
 export default async function Home() {
   const data = await getDefaultSymbols();
   const defaultSymbols: SymbolT[] = Object.values(data);
+  console.log(defaultSymbols);
   return (
     <>
       <ul>
         <li>trade</li>
         <li>learn</li>
       </ul>
-      <input
-        type="text"
-        name="searchbar"
-        id="searchbar"
-        placeholder="Search for a stock"
-      />
+      <input type="text" name="searchbar" id="searchbar" placeholder="Search for a stock" />
       <h2>watchlist</h2>
       <ul>
         {defaultSymbols.map((symbol, i) => (
           <li key={symbol.meta.symbol + i}>
             <Link href={`/${symbol.meta.symbol}`}>{symbol.meta.symbol}</Link>
-            <span>$ {symbol.values[0].close}</span>
+            {/* <span>$ {symbol.values[0].close}</span> */}
           </li>
         ))}
       </ul>
