@@ -13,7 +13,7 @@ export const getDefaultSymbols = async () => {
   params.append('symbol', dbSymbols);
   params.append('interval', '5min');
   params.append('dp', '2');
-  params.append('outputsize', '2');
+  params.append('outputsize', '1');
   try {
     const response = await axios.get(base_uri, { params });
     return response.data;

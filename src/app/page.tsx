@@ -20,7 +20,7 @@ export default async function Home() {
         {defaultSymbols.map((symbol, i) => (
           <li key={symbol.meta.symbol + i}>
             <Link href={`/${symbol.meta.symbol}`}>{symbol.meta.symbol}</Link>
-            {/* <span>$ {symbol.values[0].close}</span> */}
+            <span>$ {symbol.values[0].close}</span>
           </li>
         ))}
       </ul>
