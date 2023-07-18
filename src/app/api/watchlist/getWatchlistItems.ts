@@ -1,7 +1,13 @@
-import WatchlistItem from "../../models/watchlistItemsModel";
+import watchlistitems from '../../models/watchlistItemsModel';
 
 const getWatchlist = async () => {
-  return await WatchlistItem.find({});
+  const response = await watchlistitems.find({});
+  const results = response.map(item => {
+    return item.name;
+  });
+  const symbols = results.join(',');
+  console.log(symbols);
+  return symbols;
 };
 
 export default getWatchlist;
