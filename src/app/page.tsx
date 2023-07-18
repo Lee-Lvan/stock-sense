@@ -2,10 +2,11 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import { getDefaultSymbols } from '@/lib/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
+import { SymbolT } from './types/Symbol.type';
 
 export default async function Home() {
   const data = await getDefaultSymbols();
-  const defaultSymbols = Object.values(data);
+  const defaultSymbols: SymbolT[] = Object.values(data);
   return (
     <>
       <ul>
