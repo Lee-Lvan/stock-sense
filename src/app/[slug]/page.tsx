@@ -1,28 +1,20 @@
 import React from 'react';
 import { getGraphData } from '@/app/utils/twelvedata';
 import { ValuesT } from '../types/Symbol.type';
+import { getWatchlistData } from '@/app/utils/twelvedata';
+import ApexChart from './graph';
 
 const Symbol = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
   const data = await getGraphData(slug);
   const values = data.values;
+  // console.log(data.meta.symbol);
+  const companyData = await getWatchlistData(data.meta.symbol);
+  console.log(companyData);
 
   return (
     <>
-      <h1>{data.meta.symbol}</h1>
-
-      {values.map((item: ValuesT) => {
-        return (
-          <>
-            <p>timestamp: {item.datetime}</p>
-            <p>open: {item.open}</p>
-            <p>high: {item.high}</p>
-            <p>low: {item.low}</p>
-            <p>close: {item.close}</p>
-            <hr />
-          </>
-        );
-      })}
+      <ApexChart values={values} companyData={companyData} />
     </>
   );
 };

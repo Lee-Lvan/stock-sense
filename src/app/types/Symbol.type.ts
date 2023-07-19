@@ -27,9 +27,17 @@ type MetaT = {
 export interface IWatchlistData  {
   symbol: string;
   name: string;
+  currency: string;
+  exchange: string;
   open: string;
   high: string;
   low: string;
   close: string;
   volume: string;
+  change: string;
+  fifty_two_week: {
+    low: string;
+    high: string;
+  }
 }
+
