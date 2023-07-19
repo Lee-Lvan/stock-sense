@@ -3,12 +3,16 @@ import styles from './page.module.css';
 import { getWatchlistData } from '@/app/utils/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
 import { IWatchlistData } from './types/Symbol.type';
+import { saveToFile } from '@/app/utils/twelvedata';
 
 export default async function Home() {
   const userWatchlist = await getWatchlist(); // update this when we have profiles
   const data = await getWatchlistData(userWatchlist);
   const symbolData: IWatchlistData[] = Object.values(data);
   // console.log(symbolData);
+
+  saveToFile();
+
   return (
     <>
       <ul>
@@ -18,7 +22,8 @@ export default async function Home() {
       <input type="text" name="searchbar" id="searchbar" placeholder="Search for a stock" />
       <h2>Portfolio</h2>
       <p>
-        <Link href={'login'}>Login</Link> or <Link href={'signup'}>signup</Link> to see your portfolio
+        <Link href={'login'}>Login</Link> or <Link href={'signup'}>signup</Link> to see your
+        portfolio
       </p>
       <h2>Watchlist</h2>
       <ul>
