@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
 import { ValuesT } from '../types/Symbol.type';
 import { IWatchlistData } from '../types/Symbol.type';
 // import dayjs from 'dayjs';
@@ -12,7 +13,7 @@ type ApexChartProps = {
 
 const ApexChart: React.FC<ApexChartProps> = ({ values, companyData }) => {
   console.log(companyData);
-  const [chartData, setChartData] = useState({
+  const options: ApexOptions = {
     series: [
       {
         name: 'candle',
@@ -24,62 +25,66 @@ const ApexChart: React.FC<ApexChartProps> = ({ values, companyData }) => {
         }),
       },
     ],
-    options: {
-      chart: {
-        height: 350,
-        type: 'candlestick',
-        toolbar: false,
+    chart: {
+      height: 350,
+      type: 'candlestick',
+      toolbar: {
+        show: false,
       },
-      title: {
-        text: `${companyData.symbol} - ${companyData.name}`,
-        align: 'center',
+      animations: {
+        speed: 200,
       },
-      // annotations: {
-      //   xaxis: [
-      //     {
-      //       x: 'Oct 06 14:00',
-      //       borderColor: '#00E396',
-      //       label: {
-      //         borderColor: '#00E396',
-      //         style: {
-      //           fontSize: '12px',
-      //           color: '#fff',
-      //           background: '#00E396',
-      //         },
-      //         orientation: 'horizontal',
-      //         offsetY: 7,
-      //         text: 'Annotation Test',
-      //       },
-      //     },
-      //   ],
-      // },
-      // tooltip: {
-      //   enabled: true,
-      // },
-      // xaxis: {
-      //   type: 'category',
-      //   labels: {
-      //       formatter: function(val) {
-      //           return dayjs(val).format('MMM DD HH:mm')
-      //       }
-      //   }
-      //   },
-      //   yaxis: {
-      //     tooltip: {
-      //       enabled: true,
-      //     },
-      //   },
     },
-  });
+    title: {
+      text: `${companyData.symbol} - ${companyData.name}`,
+      align: 'center',
+    },
+    // annotations: {
+    //   xaxis: [
+    //     {
+    //       x: 'Oct 06 14:00',
+    //       borderColor: '#00E396',
+    //       label: {
+    //         borderColor: '#00E396',
+    //         style: {
+    //           fontSize: '12px',
+    //           color: '#fff',
+    //           background: '#00E396',
+    //         },
+    //         orientation: 'horizontal',
+    //         offsetY: 7,
+    //         text: 'Annotation Test',
+    //       },
+    //     },
+    //   ],
+    // },
+    // tooltip: {
+    //   enabled: true,
+    // },
+    // xaxis: {
+    //   type: 'category',
+    //   labels: {
+    //       formatter: function(val) {
+    //           return dayjs(val).format('MMM DD HH:mm')
+    //       }
+    //   }
+    //   },
+    //   yaxis: {
+    //     tooltip: {
+    //       enabled: true,
+    //     },
+    //   },
+  };
 
   return (
     <>
       <div id="chart">
         <ReactApexChart
-          options={chartData.options}
-          series={chartData.series}
+          options={options}
+          series={options.series}
           type="candlestick"
           height={600}
+          length={100}
         />
       </div>
       <div>
