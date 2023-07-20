@@ -47,3 +47,4 @@ export interface ISearchRes {
   instrument_name: string;
   exchange: string;
 }
+

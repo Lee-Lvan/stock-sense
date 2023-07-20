@@ -12,13 +12,10 @@ const Search = () => {
     const res = await getSearchRes(e.target.value);
     const results = res.data;
     setSearchRes(results);
-    console.log(res);
-    console.log(results);
-
+    // console.log(res);
+    // console.log(results);
   }
-
-  console.log(searchRes);
-
+  // console.log(searchRes);
 
   return (
   <>

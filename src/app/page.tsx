@@ -9,7 +9,6 @@ export default async function Home() {
   const userWatchlist = await getWatchlist(); // update this when we have profiles
   const data = await getWatchlistData(userWatchlist);
   const symbolData: IWatchlistData[] = Object.values(data);
-  // console.log(symbolData);
 
   return (
     <>

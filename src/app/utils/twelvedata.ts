@@ -1,6 +1,6 @@
 import axios from 'axios';
-import getWatchlist from '@/app/api/watchlist/getWatchlistItems';
-import fs from 'fs';
+import { IStock } from '../interfaces/IStock';
+// import fs from 'fs';
 
 const api = process.env.API_KEY as string;
 
@@ -31,16 +31,6 @@ export const getGraphData = async (symbol: string) => {
     throw new Error(errorMessage);
   }
 };
-
-interface IStock {
-  symbol: string;
-  name: string;
-  exchange: string;
-  access: {
-    plan: string;
-  }
-};
-  
 
 export const getStock = async (): Promise<IStock[]> => {
   const uri = `https://api.twelvedata.com/stocks?apikey=${api}&show_plan=true`;
