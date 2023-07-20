@@ -6,7 +6,6 @@ const getWatchlist = async () => {
     return item.name;
   });
   const symbols = results.join(',');
-  console.log(symbols);
   return symbols;
 };
 

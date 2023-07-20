@@ -1,15 +1,15 @@
 'use client';
 import React, { useState } from 'react';
 import { IStock } from '../interfaces/IStock';
-import getSymbols from '../db/symbols/getSymbols';
 import Link from 'next/link';
 
 const Searchbar = () => {
   const [results, setResults] = useState<IStock[]>([]);
 
   const handleSetQuery = async (query: string) => {
-    const response = await getSymbols(query);
-    setResults(response);
+    const response = await fetch(`/api/symbols?query=${query}`);
+    const symbols = await response.json();
+    setResults(symbols);
   };
   return (
     <>

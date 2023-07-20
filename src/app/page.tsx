@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import { getWatchlistData } from '@/app/utils/twelvedata';
-import getWatchlist from './db/watchlist/getWatchlistItems';
+import getWatchlist from './api/watchlist/getWatchlistItems';
 import { IWatchlistData } from './types/Symbol.type';
 import Searchbar from './components/Searchbar';
 
 export default async function Home() {
   const userWatchlist = await getWatchlist(); // update this when we have profiles
-  console.log(userWatchlist);
   const data = await getWatchlistData(userWatchlist);
   const symbolData: IWatchlistData[] = Object.values(data);
 
