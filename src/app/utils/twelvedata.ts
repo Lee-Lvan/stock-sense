@@ -53,6 +53,19 @@ export const getStock = async (): Promise<IStock[]> => {
   }
 };
 
+export const getSearchRes = async (query: string) => {
+  const uri = `https://api.twelvedata.com/symbol_search?apikey=${api}`;
+  try {
+    const params = new URLSearchParams();
+    params.append('symbol', query);
+    const response = await axios.get(uri, { params });
+    return response.data;
+  } catch (error) {
+    const errorMessage = `Try again: ${error}`;
+    throw new Error(errorMessage);
+  }
+}
+
 // export const saveToFile = async () => {
 //   try {
 //     const stockList = await getStock() as any;
