@@ -1,5 +1,4 @@
 import axios from 'axios';
-import getWatchlist from '@/app/api/watchlist/getWatchlistItems';
 
 const api = process.env.API_KEY as string;
 
@@ -27,6 +26,17 @@ export const getGraphData = async (symbol: string) => {
     return response.data;
   } catch (error) {
     const errorMessage = `Cannot get graph data: ${error}`;
+    throw new Error(errorMessage);
+  }
+};
+
+export const getStocks = async () => {
+  const base_uri = `https://api.twelvedata.com/stocks?apikey=${api}&show_plan=true`;
+  try {
+    const response = await axios.get(base_uri);
+    return response.data;
+  } catch (error) {
+    const errorMessage = `stop trying to be clever`;
     throw new Error(errorMessage);
   }
 };
