@@ -60,7 +60,6 @@ export const getStock = async (): Promise<IStock[]> => {
 //     console.log(stockList.data);
 //     const file = stockList.data
 //       .filter((stock: IStock ) => stock.access.plan === 'Grow' || stock.access.plan === 'Basic')
-     
 //       .map((stock: IStock) => ({
 //         symbol: stock.symbol,
 //         name: stock.name,

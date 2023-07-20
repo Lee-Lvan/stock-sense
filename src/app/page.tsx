@@ -3,7 +3,6 @@ import styles from './page.module.css';
 import { getWatchlistData } from '@/app/utils/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
 import { IWatchlistData } from './types/Symbol.type';
-import { saveToFile } from '@/app/utils/twelvedata';
 
 export default async function Home() {
   const userWatchlist = await getWatchlist(); // update this when we have profiles
@@ -11,7 +10,6 @@ export default async function Home() {
   const symbolData: IWatchlistData[] = Object.values(data);
   // console.log(symbolData);
 
-  saveToFile();
 
   return (
     <>

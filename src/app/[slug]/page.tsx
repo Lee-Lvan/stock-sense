@@ -10,7 +10,7 @@ const Symbol = async ({ params }: { params: { slug: string } }) => {
   const values = data.values;
   // console.log(data.meta.symbol);
   const companyData = await getWatchlistData(data.meta.symbol);
-  console.log(companyData);
+  // console.log(companyData);
 
   return (
     <>
