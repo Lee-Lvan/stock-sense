@@ -1,6 +1,4 @@
 import axios from 'axios';
-import getWatchlist from '@/app/api/watchlist/getWatchlistItems';
-import fs from 'fs';
 
 const api = process.env.API_KEY as string;
 
@@ -42,25 +40,3 @@ export const getStocks = async () => {
     throw new Error(errorMessage);
   }
 };
-
-// export const saveStockListToFile = async () => {
-//   try {
-//     const stockList = await getStocks();
-//     console.log(stockList);
-
-//     const simplifiedData = stockList.data
-//       .filter(
-//         item => item.access.plan === 'Basic' || item.access.plan === 'Grow',
-//       )
-//       .map(item => ({
-//         symbol: item.symbol,
-//         name: item.name,
-//         exchange: item.exchange,
-//       }));
-//     fs.writeFileSync('stockList.json', JSON.stringify(simplifiedData, null, 2));
-
-//     console.log('Stock list saved to stockList.json successfully!');
-//   } catch (error) {
-//     console.error('Error while saving stock list:', error.message);
-//   }
-// };

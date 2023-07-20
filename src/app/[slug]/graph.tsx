@@ -1,10 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { ValuesT } from '../types/Symbol.type';
 import { IWatchlistData } from '../types/Symbol.type';
-// import dayjs from 'dayjs';
 
 type ApexChartProps = {
   values: ValuesT[];
@@ -39,41 +38,6 @@ const ApexChart: React.FC<ApexChartProps> = ({ values, companyData }) => {
       text: `${companyData.symbol} - ${companyData.name}`,
       align: 'center',
     },
-    // annotations: {
-    //   xaxis: [
-    //     {
-    //       x: 'Oct 06 14:00',
-    //       borderColor: '#00E396',
-    //       label: {
-    //         borderColor: '#00E396',
-    //         style: {
-    //           fontSize: '12px',
-    //           color: '#fff',
-    //           background: '#00E396',
-    //         },
-    //         orientation: 'horizontal',
-    //         offsetY: 7,
-    //         text: 'Annotation Test',
-    //       },
-    //     },
-    //   ],
-    // },
-    // tooltip: {
-    //   enabled: true,
-    // },
-    // xaxis: {
-    //   type: 'category',
-    //   labels: {
-    //       formatter: function(val) {
-    //           return dayjs(val).format('MMM DD HH:mm')
-    //       }
-    //   }
-    //   },
-    //   yaxis: {
-    //     tooltip: {
-    //       enabled: true,
-    //     },
-    //   },
   };
 
   return (
