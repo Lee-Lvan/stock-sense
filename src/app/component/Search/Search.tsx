@@ -15,7 +15,7 @@ const Search = () => {
     // console.log(res);
     // console.log(results);
   }
-  // console.log(searchRes);
+  console.log(searchRes);
 
   return (
   <>
@@ -26,7 +26,7 @@ const Search = () => {
   <ul>
     {searchRes.length !== 0 && 
       (searchRes.map(item => (
-      (<li key={item._id}>
+      (<li key={item.symbol + item.exchange}>
         <Link href={`/${item.symbol}`}>{item.symbol} - {item.instrument_name} - {item.exchange}</Link>
         </li>)
       )))}
