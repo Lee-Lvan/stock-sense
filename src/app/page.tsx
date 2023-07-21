@@ -4,6 +4,7 @@ import { getWatchlistData } from '@/app/utils/twelvedata';
 import getWatchlist from './api/watchlist/getWatchlistItems';
 import { IWatchlistData } from './types/Symbol.type';
 import Searchbar from './components/Searchbar';
+import Signout from './components/Signout';
 
 export default async function Home() {
   const userWatchlist = await getWatchlist(); // update this when we have profiles
@@ -22,6 +23,8 @@ export default async function Home() {
         <Link href={'login'}>Login</Link> or <Link href={'signup'}>signup</Link>
         to see your portfolio
       </p>
+      <Signout />
+      <hr />
       <h2>Watchlist</h2>
       <ul>
         {symbolData.map(data => (
