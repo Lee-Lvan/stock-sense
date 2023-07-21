@@ -13,6 +13,11 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_SECRET as string,
     }),
   ],
+})
+
+
+
+
   // A database is optional, but required to persist accounts in a database
   // database: process.env.DATABASE_URL,
   // database: {
@@ -21,6 +26,5 @@ const handler = NextAuth({
   //   useUnifiedTopology: true,
   //   url: process.env.DATABASE_URL,
   // },
-});
 
 export { handler as GET, handler as POST };

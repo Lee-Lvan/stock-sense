@@ -31,13 +31,13 @@ const Signup = () => {
         <button onClick={() => signIn('github')}>Github</button>
         <button onClick={() => signIn('google')}>Google</button>
         <hr />
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" ref={emailRef}/>
           <label htmlFor="password">Password</label>
           <input type="password" id="password" ref={passwordRef}/>
           <button type='submit'>Sign up</button>
-        </form>
+        </form> */}
         </>
   );
 };
