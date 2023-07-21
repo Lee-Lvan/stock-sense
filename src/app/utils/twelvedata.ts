@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const api = process.env.API_KEY as string;
 
 export const getWatchlistData = async (watchlist: string) => {
@@ -30,13 +29,3 @@ export const getGraphData = async (symbol: string) => {
   }
 };
 
-export const getStocks = async () => {
-  const base_uri = `https://api.twelvedata.com/stocks?apikey=${api}&show_plan=true`;
-  try {
-    const response = await axios.get(base_uri);
-    return response.data;
-  } catch (error) {
-    const errorMessage = `stop trying to be clever`;
-    throw new Error(errorMessage);
-  }
-};

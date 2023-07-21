@@ -41,3 +41,10 @@ export interface IWatchlistData  {
   }
 }
 
+export interface ISearchRes {
+  _id: string;
+  symbol: string;
+  instrument_name: string;
+  exchange: string;
+}
+
