@@ -20,8 +20,7 @@ export default async function Home() {
       <Searchbar />
       <h2>Portfolio</h2>
       <p>
-        <Link href={'login'}>Login</Link> or <Link href={'signup'}>signup</Link>
-        to see your portfolio
+        <Link href={'/signin'}>Continue</Link> to your account to see your portfolio
       </p>
       <Signout />
       <hr />

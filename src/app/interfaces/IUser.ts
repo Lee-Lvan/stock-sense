@@ -4,7 +4,7 @@ import { HoldingsT } from '../types/Holdings.type';
 
 export interface IUser extends Document {
   email: string;
-  username: string;
+  // username: string;
   password: string;
   watchlist: WatchlistT[];
   holdings: HoldingsT[];
