@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import { getWatchlistData } from '@/app/utils/twelvedata';
-import getWatchlist from './api/watchlist/getWatchlistItems';
+import getDefaultWatchlist from './api/watchlist/getDefaultWatchlist';
 import { IWatchlistData } from './types/Symbol.type';
 import Searchbar from './components/Searchbar';
 import Signout from './components/Signout';
 
 export default async function Home() {
-  const userWatchlist = await getWatchlist(); // update this when we have profiles
-  const data = await getWatchlistData(userWatchlist);
-  const symbolData: IWatchlistData[] = Object.values(data);
+  // const userWatchlist = await getDefaultWatchlist(); // update this when we have profiles
+  // const data = await getWatchlistData(userWatchlist);
+  // const symbolData: IWatchlistData[] = Object.values(data);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default async function Home() {
       <hr />
       <h2>Watchlist</h2>
       <ul>
-        {symbolData.map(data => (
+        {/* {symbolData.map(data => (
           <li key={data.symbol}>
             <Link href={`/${data.symbol}`}>
               {data.symbol} - {data.name}
@@ -36,7 +36,7 @@ export default async function Home() {
             <br />
             <br />
           </li>
-        ))}
+        ))} */}
       </ul>
     </>
   );

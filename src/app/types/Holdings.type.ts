@@ -1,5 +1,7 @@
+import { ObjectId } from "mongodb";
+
 export type HoldingsT = {
-  id: string;
+  _id: ObjectId;
   price: number;
   quantity: number;
 };

@@ -1,22 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import User from "../../models/usersModel";
+import getDefaultWatchlist from "../watchlist/getDefaultWatchlist";
+import { ObjectId } from "mongodb";
 
 export const GET = async (req: NextRequest ) => {
   const params = req.nextUrl.searchParams.get("query") as string;
-  const response = await User.find({ email: params });
-  console.log('route, response------->', response);
-  if (response !== null) {
+  const response = await User.find({ email: params }).populate('watchlist');
+  if (response.length) {
     return NextResponse.json(response);
   } else {
-    const newUser = {
+    const defaultWatchlist: ObjectId[] = await getDefaultWatchlist();
+    const newUser = new User({
       email: params,
-      watchlist: [], // refer to the id from the watchlistitems
+      watchlist: defaultWatchlist,
       holdings: [],
-    }
-    const user = await User.create(newUser);
-    console.log('user created------->', user);
-    return NextResponse.json(user);
-  }
-
+      cash: 10000
+    })
+    await newUser.save();
+    const response = await User.findOne({email: params}).populate('watchlist').exec()
+    return NextResponse.json(response);
+  }  
 }
-

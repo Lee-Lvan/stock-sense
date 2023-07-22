@@ -6,17 +6,12 @@ import { useSession, signOut } from 'next-auth/react';
 
 const Signout = () => {
   const { data: session } = useSession();
-  console.log('signout, session------->',session);
 
-  const handleSignin = async () => {
-    const response = await axios.get(`/api/users?query=${session?.user?.email}`);
-    const result = await response.data;
-    console.log('signout, result------->',result);
-  };
-
-  useEffect(() => {
-    handleSignin();
-  }, [session]);
+  if (session) {
+    (async () => {
+      await axios.get(`/api/users?query=${session?.user?.email}`);
+    })()
+  }
 
   return (
     <>
