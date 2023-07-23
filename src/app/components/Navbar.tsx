@@ -2,10 +2,13 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <ul>
-      <li>trade</li>
-      <li>learn</li>
-    </ul>
+    <nav>
+      <ul>
+        <li>TRADE</li>
+        <li>StockSense</li>
+        <li>LEARN</li>
+      </ul>
+    </nav>
   )
 }
 
