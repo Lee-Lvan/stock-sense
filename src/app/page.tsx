@@ -1,6 +1,5 @@
 import styles from './page.module.css';
 import getDefaultWatchlist from './api/watchlist/getDefaultWatchlist';
-import { IWatchlistData } from './types/Symbol.type';
 import Searchbar from './components/Searchbar';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
@@ -29,6 +28,7 @@ const date = getFormattedDate();
       <Navbar />
       <p>{date}</p>
       <Searchbar />
+      <h2>My Portfolio</h2>
       <Dashboard defaultData={defaultData}/>
     </>
   );
