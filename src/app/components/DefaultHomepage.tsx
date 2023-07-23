@@ -20,10 +20,10 @@ const DefaultHomepage = ({defaultData}) => {
 
   return (
     <div>
-      <p>not signed in</p>
       <p>
         <Link href={'/signin'}>Log in/sign up</Link> to your account to see your portfolio
       </p>
+      <h2>Watchlist</h2>
       <ul>
         {
           watchlist.map((item, index) => {

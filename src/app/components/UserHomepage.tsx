@@ -18,7 +18,6 @@ const UserHomepage = () => {
     const fetchData = async () => {
           try {
             const userDataResponse = await axios.get(`/api/users?query=${session?.user?.email}`);
-            const response = userDataResponse.data
             setUserData(userDataResponse.data);
             const query = userDataResponse.data.watchlist.map((item) => item.name).join(',');
             const watchlistResponse = await getWatchlistData(query);
@@ -33,8 +32,7 @@ const UserHomepage = () => {
 
   return (
     <>
-      <p>signed in - {session.user.name}</p>
-      <button onClick={() => signOut()}>Sign out</button>
+      <h2>My Watchlist</h2>
       <ul>
       {
         watchlist.map((item, index) => {
