@@ -1,43 +1,19 @@
-import Link from 'next/link';
 import styles from './page.module.css';
-import { getWatchlistData } from '@/app/utils/twelvedata';
 import getDefaultWatchlist from './api/watchlist/getDefaultWatchlist';
 import { IWatchlistData } from './types/Symbol.type';
 import Searchbar from './components/Searchbar';
-import Signout from './components/Signout';
+import Dashboard from './components/Dashboard';
+import Navbar from './components/Navbar';
 
 export default async function Home() {
-  // const userWatchlist = await getDefaultWatchlist(); // update this when we have profiles
-  // const data = await getWatchlistData(userWatchlist);
-  // const symbolData: IWatchlistData[] = Object.values(data);
+  const response = await getDefaultWatchlist()
+  const defaultData = response.map(item => item.name).join(',') 
 
   return (
     <>
-      <ul>
-        <li>trade</li>
-        <li>learn</li>
-      </ul>
+      <Navbar />
       <Searchbar />
-      <h2>Portfolio</h2>
-      <p>
-        <Link href={'/signin'}>Continue</Link> to your account to see your portfolio
-      </p>
-      <Signout />
-      <hr />
-      <h2>Watchlist</h2>
-      <ul>
-        {/* {symbolData.map(data => (
-          <li key={data.symbol}>
-            <Link href={`/${data.symbol}`}>
-              {data.symbol} - {data.name}
-            </Link>
-            <br />
-            <span>${data.close}</span>
-            <br />
-            <br />
-          </li>
-        ))} */}
-      </ul>
+      <Dashboard defaultData={defaultData}/>
     </>
   );
 }

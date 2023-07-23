@@ -7,11 +7,13 @@ const nextConfig = {
     // DB_URI: ,
     // NEXTAUTH_SECRET: ,
 
-    GITHUB_ID: 'fa2c2086e7721fd870a1',
-    GITHUB_SECRET: 'fc2de468527bb7abe26f7a08aed7dfacfd1c5e78',
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET,
 
-    GOOGLE_ID:'744014055280-dn269s9vs10u5ufqv9j5um5vfpfcu6sp.apps.googleusercontent.com',
-    GOOGLE_SECRET:'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',
+    GOOGLE_ID: process.env.GOOGLE_ID,
+    GOOGLE_SECRET: process.env.GOOGLE_SECRET,
+
+    API_KEY: process.env.API_KEY
   },
 };
 
