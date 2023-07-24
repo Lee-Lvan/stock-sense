@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito+Sans:wght@400;600;700;900;1000&display=swap');
+
+
+:root {
+  --primary-navy: #051626;        
+  --primary-blue: #0C233E;        
+  --secondary-gold: #F2A341;      
+  --secondary-sand: #EFD696;
+  --accent-teal: #53A7A0;        
+  --accent-olive: #768C82; 
+  --accent-ice: #FDFFFC;    
+  --accent-slate: #D9DDDD;
+  --accent-red: #BE3A4A;
+  --accent-green: #49B969;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary-navy);
+  color: var(--accent-slate);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-slate);
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  width: 26.875rem;
+  padding: 4.375rem 1.625rem 0rem 1.625rem;
+  align-items: center;
+  gap: 1.4375rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--secondary-gold);
+  font-family: 'Alfa Slab One', cursive;
+}
+
+h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+}
+
+button {
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Default Home Screen */
+
+.default-home-layout {
+  display: flex;
+  width: 26.875rem;
+  height: 58.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4375rem;
+}
+
+.mode-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--accent-teal);
+}
+
+.signin-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border: 1px solid var(--secondary-gold);
+  background: var(--primary-navy);
+  color: var(--accent-slate);
+}
+
+.signout-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--secondary-gold);
+}
+
+.date {
+  display: flex;
+  margin: 1.625rem;
+  width: 23.75rem;
+  height: 1.875rem;
+  align-items: center;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+}
+
+.signin-layout {
+  display: flex;
+  width: 26.875rem;
+  height: 58.25rem;
+  padding: 3.4375rem 1.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem;
+}
+
+.searchbar {
+  display: flex;
+  width: 23.75rem;
+  height: 3.125rem;
+  padding: 0.625rem 0.8125rem;
+  margin: 1.625rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--accent-olive);
+  background: var(--primary-navy);
+  color: var(--accent-slate);
+}
+
+::placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.signin-prompt {
+  display: flex;
+  width: 23.625rem;
+  height: 3.875rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent-slate);
+}
+
+.signin-text {
+  color: var(--secondary-gold)
+}
+
+.watchlist-title {
+  display: flex;
+  /* width: 22.5rem; */
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.watchlist {
+  display: inline-flex;
+  margin: 1.625rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem; 
+  border-radius: 0.75rem;
+  background: var(--primary-blue);
+}
+
+.watchlist-item {
+  display: flex;
+  width: 20rem;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.watchlist-item__header {
+  display: flex;
+  width: 12rem;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.watchlist-item__header-symbol {
+  color: var(--accent-slate);
+}
+
+.watchlist-item__header-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.watchlist-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.watchlist-item__price-red {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-red);
+}
+
+.watchlist-item__price-green {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.watchlist-item__change {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+

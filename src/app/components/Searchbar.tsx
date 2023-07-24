@@ -12,8 +12,9 @@ const Searchbar = () => {
     setResults(symbols);
   };
   return (
-    <>
+    <div>
       <input
+        className='searchbar'
         onChange={e => handleSetQuery(e.target.value)}
         type="text"
         name="searchbar"
@@ -31,7 +32,7 @@ const Searchbar = () => {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 

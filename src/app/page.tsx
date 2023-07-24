@@ -1,4 +1,3 @@
-import styles from './page.module.css';
 import getDefaultWatchlist from './api/watchlist/getDefaultWatchlist';
 import Searchbar from './components/Searchbar';
 import Dashboard from './components/Dashboard';
@@ -18,7 +17,7 @@ const getFormattedDate = () => {
   const month = months[today.getMonth()];
   const date = today.getDate();
 
-  return `${dayOfWeek} ${month} ${date}`;
+  return `${dayOfWeek},  ${month} ${date}`;
 }
 
 const date = getFormattedDate();
@@ -26,7 +25,7 @@ const date = getFormattedDate();
   return (
     <>
       <Navbar />
-      <p>{date}</p>
+      <p className='date'>{date}</p>
       <Searchbar />
       <Dashboard defaultData={defaultData}/>
     </>

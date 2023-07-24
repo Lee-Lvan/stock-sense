@@ -4,7 +4,6 @@ import { getWatchlistData } from '../utils/twelvedata';
 import WatchlistItem from './WatchlistItem';
 import Link from 'next/link';
 
-
 const DefaultHomepage = ({defaultData}) => {
   const [watchlist, setWatchlist] = useState([])
 
@@ -16,19 +15,20 @@ const DefaultHomepage = ({defaultData}) => {
     } 
     fetchDefaultWatchlist()
   }, [])
-
-
+  
   return (
-    <div>
-      <p><Link href={'/signin'}>click here</Link> to start building your portfolio</p>
-      <h2>Watchlist</h2>
-      <ul>
-        {
-          watchlist.map((item, index) => {
-            return <WatchlistItem key={index} item={item} />
-          })
-        }
-      </ul>
+    <div className='default-home-layout'>
+      <p className='signin-prompt'><Link href={'/signin'} className='signin-text'>Sign in</Link>to start building your portfolio</p>
+      <div className='watchlist'>
+        <h2 className='watchlist-title'>Watchlist</h2>
+        <section>
+          {
+            watchlist.map((item, index) => {
+              return <WatchlistItem key={index} item={item} />
+            })
+          }
+        </section>
+      </div>
     </div>
   )
 }

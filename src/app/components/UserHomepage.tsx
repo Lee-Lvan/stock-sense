@@ -38,7 +38,13 @@ const UserHomepage = () => {
       <h3>Cash Balance</h3>
       <p>${userData?.cash.toLocaleString()}</p>
       <h2>Investments</h2>
-      <p>userData.holdings.map...</p>
+      <ul>
+      {
+        userData?.holdings.map((item, index) => {
+          // return <WatchlistItem key={index} item={item} />
+        })
+      }
+      </ul>
       <h2>My Watchlist</h2>
       <ul>
       {

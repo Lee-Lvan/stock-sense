@@ -24,3 +24,25 @@ export const GET = async (req: NextRequest) => {
     console.error('Error handling request:', error);
   }
 }
+
+export const PUT = async (req: NextRequest) => {
+  try {
+    const email = req.nextUrl.searchParams.get("user") as string;
+    const chunks = [];
+    for await (const chunk of req.body) {
+      chunks.push(chunk);
+    }
+    const purchaseData = JSON.parse(Buffer.concat(chunks).toString('utf-8'));
+    const user = await User.findOne({email: email})
+    user.holdings.push({
+      name: purchaseData.name,
+      quantity: purchaseData.quantity,
+      price: purchaseData.price
+    });
+    user.cash -= purchaseData.price
+    await user.save()
+    return NextResponse.json(user)
+  } catch (error) {
+    console.error('Error handling request:', error)
+  }
+}

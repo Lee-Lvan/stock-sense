@@ -8,15 +8,15 @@ const Navbar = () => {
 
   return (
     <nav>
-      <ul>
-        <li>TRADE</li>
-        <li>StockSense</li>
-        <li>LEARN</li>
-        {!session &&<li><Link href={'/signin'}>Log in/sign up</Link></li>}
-        {session && <li onClick={() => signOut()}>Sign out</li>}
-      </ul>
+      {/* <div className='nav'> */}
+        <button className='mode-btn'>Trade</button>
+        {/* <button>Learn</button> Need to figure out how to do this toggle */}
+        <h1 className='logo'>StockSense</h1>
+        {!session &&<button className='signin-btn'><Link href={'/signin'}>Sign In</Link></button>}
+        {session && <button className='signout-btn'onClick={() => signOut()}>Sign out</button>}
+      {/* </div> */}
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar;

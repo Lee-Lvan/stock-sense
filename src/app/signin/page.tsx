@@ -8,13 +8,11 @@ const Signin = () => {
   
 
   return (
-        <>
+        <div className='signin-layout'>
+        <button className='back-btn'><Link href={`/`}>Back</Link></button>
         <h1>StockSense</h1>
-        
-
         <button onClick={() => signIn('github', {callbackUrl: '/'})}>Continue with Github</button> <br />
         <button onClick={() => signIn('google', {callbackUrl: '/'})}>Continue with Google</button>
-        <hr />
         {/* <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" ref={emailRef}/>
@@ -22,7 +20,7 @@ const Signin = () => {
           <input type="password" id="password" ref={passwordRef}/>
           <button type='submit'>Sign up</button>
         </form> */}
-        </>
+        </div>
   );
 };
 
