@@ -35,6 +35,7 @@ export interface IWatchlistData  {
   close: string;
   volume: string;
   change: string;
+  is_market_open: boolean;
   fifty_two_week: {
     low: string;
     high: string;
