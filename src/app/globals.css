@@ -261,7 +261,8 @@ nav {
 }
 
 .back-btn {
-
+  font-size: 1.625rem;
+  color: var(--accent-olive);
 }
 
 .singin-subtitle {
@@ -277,6 +278,8 @@ nav {
   padding: 0.625rem 1.5rem;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--accent-ice);
   background: var(--primary-blue);
 }
@@ -284,3 +287,8 @@ nav {
 /* Sign In Screen  END ------------------------------------ */
 
 
+/* User Home Screen START ------------------------------------ */
+
+
+
+/* User Home Screen END ------------------------------------ */

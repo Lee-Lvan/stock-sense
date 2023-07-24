@@ -1,8 +1,11 @@
-import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { connectToMongo } from './utils/connectToMongo';
 import NextAuthProviders from './utils/nextAuthProviders';
+import './globals.css';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const inter = Inter({ subsets: ['latin'] });
 
