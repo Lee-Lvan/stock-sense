@@ -14,12 +14,12 @@ export const getWatchlistData = async (watchlist: string) => {
   }
 };
 
-export const getGraphData = async (symbol: string) => {
+export const getGraphData = async ([symbol, interval='5min', outputsize='78']: string[]) => {
   const base_uri = `https://api.twelvedata.com/time_series?apikey=${api}&dp=2`;
   const params = new URLSearchParams();
   params.append('symbol', symbol);
-  params.append('interval', '5min');
-  params.append('outputsize', '78');
+  params.append('interval', interval);
+  params.append('outputsize', outputsize);
   try {
     const response = await axios.get(base_uri, { params });
     return response.data;
