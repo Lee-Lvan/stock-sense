@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito+Sans:wght@400;600;700;900;1000&display=swap');
 
-
 :root {
   --primary-navy: #051626;        
   --primary-blue: #0C233E;        
@@ -13,6 +12,8 @@
   --accent-red: #BE3A4A;
   --accent-green: #49B969;
 }
+
+/* Global START ------------------------------------ */
 
 * {
   margin: 0;
@@ -39,21 +40,6 @@ ul {
   padding: 0;
 }
 
-nav {
-  display: flex;
-  width: 26.875rem;
-  padding: 4.375rem 1.625rem 0rem 1.625rem;
-  align-items: center;
-  gap: 1.4375rem;
-}
-
-.logo {
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--secondary-gold);
-  font-family: 'Alfa Slab One', cursive;
-}
-
 h2 {
   font-size: 1.375rem;
   font-weight: 700;
@@ -68,15 +54,26 @@ button {
   font-weight: 600;
 }
 
-/* Default Home Screen */
+/* Global END ------------------------------------ */
 
-.default-home-layout {
+
+/* Top Nav START ------------------------------------ */
+
+nav {
   display: flex;
   width: 26.875rem;
-  height: 58.25rem;
-  flex-direction: column;
+  height: 7.625rem;
+  padding: 1.375rem 1.625rem 0rem 1.625rem;
   align-items: center;
   gap: 1.4375rem;
+  background: var(--primary-blue);
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--secondary-gold);
+  font-family: 'Alfa Slab One', cursive;
 }
 
 .mode-btn {
@@ -114,6 +111,19 @@ button {
   background: var(--secondary-gold);
 }
 
+/* Top Nav END ------------------------------------ */
+
+
+/* Default Home Screen  START ------------------------------------ */
+
+.default-home-layout {
+  display: flex;
+  width: 26.875rem;
+  height: 58.25rem;
+  flex-direction: column;
+  align-items: center;
+}
+
 .date {
   display: flex;
   margin: 1.625rem;
@@ -123,16 +133,6 @@ button {
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--accent-slate);
-}
-
-.signin-layout {
-  display: flex;
-  width: 26.875rem;
-  height: 58.25rem;
-  padding: 3.4375rem 1.625rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2.25rem;
 }
 
 .searchbar {
@@ -243,4 +243,44 @@ button {
   font-weight: 400;
   color: var(--accent-olive);
 }
+
+/* Default Home Screen  END ------------------------------------ */
+
+
+
+/* Sign In Screen  START ------------------------------------ */
+
+.signin-layout {
+  display: flex;
+  width: 26.875rem;
+  height: 58.25rem;
+  padding: 3.4375rem 1.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem;
+}
+
+.back-btn {
+
+}
+
+.singin-subtitle {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--secondary-sand);
+}
+
+.auth-btn {
+  display: flex;
+  width: 23.75rem;
+  height: 3.125rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-ice);
+  background: var(--primary-blue);
+}
+
+/* Sign In Screen  END ------------------------------------ */
+
 

@@ -17,7 +17,7 @@ const getFormattedDate = () => {
   const month = months[today.getMonth()];
   const date = today.getDate();
 
-  return `${dayOfWeek},  ${month} ${date}`;
+  return `${dayOfWeek} ${month} ${date}`;
 }
 
 const date = getFormattedDate();
