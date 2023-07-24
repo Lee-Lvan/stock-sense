@@ -28,7 +28,6 @@ const date = getFormattedDate();
       <Navbar />
       <p>{date}</p>
       <Searchbar />
-      <h2>My Portfolio</h2>
       <Dashboard defaultData={defaultData}/>
     </>
   );
