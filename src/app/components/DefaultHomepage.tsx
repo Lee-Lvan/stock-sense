@@ -20,9 +20,7 @@ const DefaultHomepage = ({defaultData}) => {
 
   return (
     <div>
-      <p>
-        <Link href={'/signin'}>Log in/sign up</Link> to your account to see your portfolio
-      </p>
+      <p><Link href={'/signin'}>click here</Link> to start building your portfolio</p>
       <h2>Watchlist</h2>
       <ul>
         {

@@ -32,6 +32,13 @@ const UserHomepage = () => {
 
   return (
     <>
+      <h2>My Portfolio</h2>
+      <h3>Portfolio Balance</h3>
+      <p>userData.cash + holdings total value</p>
+      <h3>Cash Balance</h3>
+      <p>${userData?.cash.toLocaleString()}</p>
+      <h2>Investments</h2>
+      <p>userData.holdings.map...</p>
       <h2>My Watchlist</h2>
       <ul>
       {
