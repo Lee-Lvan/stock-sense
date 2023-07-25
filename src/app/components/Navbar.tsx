@@ -2,12 +2,10 @@
 import React from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
-// import Signout from './Signout';
 import axios from 'axios';
 
 const Navbar = () => {
   const { data: session } = useSession();
-  // const { data: session } = useSession();
 
   if (session) {
     (async () => {
@@ -33,12 +31,6 @@ const Navbar = () => {
       )}
       </div>
       {session && (<p className="welcome-text">Welcome {session.user?.email}</p>)}
-      {/* {session && (
-        <button className="signout-btn" onClick={() => signOut()}>
-          Sign out
-        </button>
-      )} */}
-      {/* <Signout /> */}
     </nav>
   );
 };

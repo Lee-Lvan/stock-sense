@@ -31,7 +31,7 @@ const UserHomepage = () => {
   }, [])
 
   return (
-    <>
+    <div className='userhome-layout'>
       <h2>My Portfolio</h2>
       <h3>Portfolio Balance</h3>
       <p>userData.cash + holdings total value</p>
@@ -46,14 +46,14 @@ const UserHomepage = () => {
       }
       </ul>
       <h2>My Watchlist</h2>
-      <ul>
+      <section>
       {
         watchlist.map((item, index) => {
           return <WatchlistItem key={index} item={item} />
         })
       }
-      </ul>
-    </>
+      </section>
+    </div>
   )
 }
 
