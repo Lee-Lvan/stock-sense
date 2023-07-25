@@ -62,11 +62,18 @@ button {
 nav {
   display: flex;
   width: 26.875rem;
-  height: 7.625rem;
-  padding: 1.375rem 1.625rem 0rem 1.625rem;
+  padding: 5.375rem 1.625rem 1.25rem 1.625rem;
+  flex-direction: column;
   align-items: center;
-  gap: 1.4375rem;
+  gap: 1rem;
   background: var(--primary-blue);
+}
+
+.header {
+  display: flex;
+  width: 23.75rem;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .logo {
@@ -109,6 +116,17 @@ nav {
   align-items: center;
   gap: 0.625rem;
   background: var(--secondary-gold);
+}
+
+.welcome-text {
+  display: flex;
+  width: 25rem;
+  padding: 0rem 0.625rem;
+  align-items: flex-start;
+  gap: 0.625rem;  
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-slate);
 }
 
 /* Top Nav END ------------------------------------ */
@@ -288,6 +306,7 @@ nav {
 
 
 /* User Home Screen START ------------------------------------ */
+
 
 
 

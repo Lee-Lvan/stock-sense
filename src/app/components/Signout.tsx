@@ -1,28 +1,28 @@
-'use client';
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useSession, signOut } from 'next-auth/react';
+// 'use client';
+// import React from 'react';
+// import axios from 'axios';
+// import { useSession, signOut } from 'next-auth/react';
 
 
-const Signout = () => {
-  const { data: session } = useSession();
+// const Signout = () => {
+//   const { data: session } = useSession();
 
-  if (session) {
-    (async () => {
-      await axios.get(`/api/users?query=${session?.user?.email}`);
-    })()
-  }
+//   if (session) {
+//     (async () => {
+//       await axios.get(`/api/users?query=${session?.user?.email}`);
+//     })()
+//   }
 
-  return (
-    <>
-      {session && (
-        <>
-          <p>Signed in as {session.user?.email}</p>
-          <button onClick={() => signOut()}>Sign out</button>
-        </>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {session && (
+//         <>
+//           <button className="signout-btn"  onClick={() => signOut()}>Sign out</button>
+//           <p className='welcome-text'>Welcome {session.user?.email}</p>
+//         </>
+//       )}
+//     </>
+//   );
+// };
 
-export default Signout;
+// export default Signout;
