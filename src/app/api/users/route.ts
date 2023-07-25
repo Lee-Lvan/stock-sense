@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
-import User from "../../models/usersModel";
-import getDefaultWatchlist from "../watchlist/getDefaultWatchlist";
+import { NextRequest, NextResponse } from 'next/server';
+import User from '../../models/usersModel';
+import getDefaultWatchlist from '../watchlist/getDefaultWatchlist';
 
 export const GET = async (req: NextRequest) => {
   try {
-    const params = req.nextUrl.searchParams.get("query") as string;
+    const params = req.nextUrl.searchParams.get('query') as string;
     const response = await User.findOne({ email: params }).populate('watchlist');
     if (response) {
       return NextResponse.json(response);
@@ -14,7 +14,7 @@ export const GET = async (req: NextRequest) => {
         email: params,
         watchlist: defaultWatchlist,
         holdings: [],
-        cash: 10000
+        cash: 10000,
       });
       await newUser.save();
       const response = await User.findById(newUser._id).populate('watchlist');
@@ -23,26 +23,32 @@ export const GET = async (req: NextRequest) => {
   } catch (error) {
     console.error('Error handling request:', error);
   }
-}
+};
 
 export const PUT = async (req: NextRequest) => {
   try {
-    const email = req.nextUrl.searchParams.get("user") as string;
+    const email = req.nextUrl.searchParams.get('user') as string;
     const chunks = [];
     for await (const chunk of req.body) {
       chunks.push(chunk);
     }
     const purchaseData = JSON.parse(Buffer.concat(chunks).toString('utf-8'));
-    const user = await User.findOne({email: email})
+    const user = await User.findOne({ email: email });
+
+    // Insufficient funds
+    if (user.cash < purchaseData.price * purchaseData.quantity) {
+      return NextResponse.json({messgae: 'Insufficient funds'})
+    }
+
     user.holdings.push({
       name: purchaseData.name,
       quantity: purchaseData.quantity,
-      price: purchaseData.price
+      price: purchaseData.price,
     });
-    user.cash -= purchaseData.price
-    await user.save()
-    return NextResponse.json(user)
+    user.cash -= purchaseData.price;
+    await user.save();
+    return NextResponse.json(user);
   } catch (error) {
-    console.error('Error handling request:', error)
+    console.error('Error handling request:', error);
   }
-}
+};
