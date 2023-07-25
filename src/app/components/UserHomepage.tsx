@@ -32,20 +32,27 @@ const UserHomepage = () => {
 
   return (
     <div className='userhome-layout'>
-      <h2>My Portfolio</h2>
-      <h3>Portfolio Balance</h3>
-      <p>userData.cash + holdings total value</p>
-      <h3>Cash Balance</h3>
-      <p>${userData?.cash.toLocaleString()}</p>
-      <h2>Investments</h2>
-      <ul>
-      {
-        userData?.holdings.map((item, index) => {
-          // return <WatchlistItem key={index} item={item} />
-        })
-      }
-      </ul>
-      <h2>My Watchlist</h2>
+      <div className='card'>
+        <h2 className='card-title'>My Portfolio</h2>
+        <h3>Captial</h3>
+        <p>userData.cash + holdings total value</p>
+        <h3>Available to Invest</h3>
+        <p>${userData?.cash.toLocaleString()}</p>
+      </div>
+
+      <div className='card'>
+        <h2 className='card-title'>Investments</h2>
+        <section>
+        {
+          userData?.holdings.map((item, index) => {
+            // return <WatchlistItem key={index} item={item} />
+          })
+        }
+        </section>
+      </div>
+
+      <div className='card'>
+      <h2 className='card-title'>My Watchlist</h2>
       <section>
       {
         watchlist.map((item, index) => {
@@ -53,6 +60,7 @@ const UserHomepage = () => {
         })
       }
       </section>
+      </div>
     </div>
   )
 }

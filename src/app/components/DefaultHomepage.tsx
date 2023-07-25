@@ -17,10 +17,10 @@ const DefaultHomepage = ({defaultData}) => {
   }, [])
   
   return (
-    <div className='default-home-layout'>
+    <div className='defaulthome-layout'>
       <p className='signin-prompt'><Link href={'/signin'} className='signin-text'>Sign in</Link>to start building your portfolio</p>
-      <div className='watchlist'>
-        <h2 className='watchlist-title'>Watchlist</h2>
+      <div className='card'>
+        <h2 className='card-title'>Watchlist</h2>
         <section>
           {
             watchlist.map((item, index) => {
