@@ -153,17 +153,34 @@ const UserHomepage = () => {
           <h2 className="card-title">My Portfolio</h2>
           <div className="card-item-layout">
             <p className="balance-amount">
-              {(+userData?.cash.toFixed(2) + investmentTotal).toLocaleString()} USD
+              {(+userData?.cash.toFixed(2) + investmentTotal).toLocaleString() === 'NaN' ? (
+                <span>Loading... </span>
+              ) : (
+                (+userData?.cash.toFixed(2) + investmentTotal).toLocaleString()
+              )}{' '}
+              USD
             </p>
 
             <div className="card-item__info">
               {+userData?.cash.toFixed(2) + investmentTotal < 10000 ? (
                 <p className="card-item__price-red">
-                  {(+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString()} USD
+                  {(+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString() ===
+                  'NaN' ? (
+                    <span>Loading...</span>
+                  ) : (
+                    (+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString()
+                  )}{' '}
+                  USD
                 </p>
               ) : (
                 <p className="card-item__price-green">
-                  {(+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString()} USD
+                  {(+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString() ===
+                  'NaN' ? (
+                    <span>Loading...</span>
+                  ) : (
+                    (+userData?.cash.toFixed(2) + investmentTotal - 10000).toLocaleString()
+                  )}{' '}
+                  USD
                 </p>
               )}
               <p className="card-item__change">

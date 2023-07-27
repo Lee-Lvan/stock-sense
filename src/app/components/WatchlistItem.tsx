@@ -12,11 +12,11 @@ const WatchlistItem = ({ item }) => {
         <div className="card-item__info">
           {item.percent_change < 0 ? (
             <p className="card-item__price-red">
-              {item.close} {item.currency}
+              {item.close ? item.close : <span>Loading...</span>} {item.currency}
             </p>
           ) : (
             <p className="card-item__price-green">
-              {item.close} {item.currency}
+              {item.close ? item.close : <span>Loading...</span>} {item.currency}
             </p>
           )}
           <p className="card-item__change">{item.percent_change} %</p>

@@ -14,9 +14,9 @@ const InvestmentItem = ({ item }) => {
         </div>
         <div className="card-item__info">
           {item.currentWorth < item.totalPrice ? (
-            <p className="card-item__price-red">{item.currentWorth.toFixed(2)} USD</p>
+            <p className="card-item__price-red">{item.currentWorth.toFixed(2) === "NaN" ? <span>Loading...</span> : item.currentWorth.toFixed(2)} USD</p>
           ) : (
-            <p className="card-item__price-green">{item.currentWorth.toFixed(2)} USD</p>
+            <p className="card-item__price-green">{item.currentWorth.toFixed(2) === "NaN" ? <span>Loading...</span> : item.currentWorth.toFixed(2)} USD</p>
           )}
           <p className="card-item__change">
             {(((item.currentWorth - item.totalPrice) / Math.abs(item.totalPrice)) * 100).toFixed(2)}{' '}
