@@ -327,7 +327,7 @@ nav {
   left: 0%;
   right: 0%;
   background-color: var(--primary-blue);
-  border: var(--secondary-sand) 1px solid;
+  border: var(--secondary-sand) 0.5px solid;
   border-radius: 0.75rem;
 }
 
