@@ -194,7 +194,7 @@ button {
 nav {
   display: flex;
   width: 100%;
-  padding: 3.375rem 1.625rem 1rem 1.625rem;
+  padding: 2.375rem 1.625rem 1rem 1.625rem;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -250,7 +250,7 @@ nav {
   align-items: center;
   gap: 0.625rem;
   border: 1px solid var(--secondary-sand);
-  background: var(--primary-header);
+  background: var(--primary-navy);
   color: var(--accent-slate);
 }
 
@@ -327,7 +327,7 @@ nav {
   left: 0%;
   right: 0%;
   background-color: var(--primary-navy);
-  border: var(--secondary-gold) 1px solid;
+  border-bottom: var(--accent-olive) 1px solid;
   border-radius: 0.75rem;
 }
 
@@ -354,11 +354,8 @@ nav {
   margin-top: 1.625rem;
   align-items: center;
   gap: 0.625rem;
-  /* border-radius: 0.75rem; */
-  /* border: 1px solid var(--accent-olive); */
   border: none;
-  border-bottom: 1.5px solid var(--accent-olive);
-  background: var(--primary-navy);
+  background: transparent;
   color: var(--accent-slate);
 }
 
