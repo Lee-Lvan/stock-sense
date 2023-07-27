@@ -5,10 +5,8 @@ import { getWatchlistData } from '@/app/utils/twelvedata';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { ValuesT } from '../types/Symbol.type';
-import { IWatchlistData } from '../types/Symbol.type';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import symbolData from '../checkout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,7 +21,6 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
     const fetchChartData = async () => {
       const data = await getGraphData(timeframe);
       const chartValues = data.values;
-      // console.log('------', data.meta.symbol);
       const companyDataResponse = await getWatchlistData(data.meta.symbol);
       setValues(chartValues);
       setCompanyData(companyDataResponse);
@@ -34,17 +31,27 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
   const options: ApexOptions = {
     series: [
       {
-        name: 'candle',
+        name: 'candlestick',
         data: values.reverse().map((item: ValuesT) => {
+          // console.log(item.datetime);
           return {
+            // x: new Date(item.datetime),
             x: item.datetime,
             y: [item.open, item.high, item.low, item.close],
           };
         }),
       },
     ],
+    tooltip: {
+      theme: 'dark',
+    },
+    xaxis: {
+      type: 'numeric',
+      labels: {
+        show: false,
+      },
+    },
     chart: {
-      height: 350,
       type: 'candlestick',
       toolbar: {
         show: false,
@@ -69,7 +76,11 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
           <p className="single-stock__header-exchange">{companyData?.exchange}</p>
         </div>
         <div className="single-stock__header-market">
-          {companyData?.is_market_open ? <p className='market-open'>Market Open</p> : <p className='market-closed'>Market Closed</p>}
+          {companyData?.is_market_open ? (
+            <p className="market-open">Market Open</p>
+          ) : (
+            <p className="market-closed">Market Closed</p>
+          )}
         </div>
       </article>
       <article className="single-stock__price-layout">
@@ -95,28 +106,28 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
         >
           1D
         </button>
-        <span className='separator'>|</span>
+        <span className="separator">|</span>
         <button
           className="single-stock__period-btn"
           onClick={() => setTimeframe([companyData?.symbol, '30min', '65'])}
         >
           1W
         </button>
-        <span className='separator'>|</span>
+        <span className="separator">|</span>
         <button
           className="single-stock__period-btn"
           onClick={() => setTimeframe([companyData?.symbol, '4h', '60'])}
         >
           1M
         </button>
-        <span className='separator'>|</span>
+        <span className="separator">|</span>
         <button
           className="single-stock__period-btn"
           onClick={() => setTimeframe([companyData?.symbol, '1day', '90'])}
         >
           3M
         </button>
-        <span className='separator'>|</span>
+        <span className="separator">|</span>
         <button
           className="single-stock__period-btn"
           onClick={() => setTimeframe([companyData?.symbol, '1day', '365'])}
@@ -129,8 +140,8 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
           options={options}
           series={options.series}
           type="candlestick"
-          height={600}
-          length={100}
+          height={350}
+          // width={800}
         />
       </article>
       <article className="single-stock__trade-layout">

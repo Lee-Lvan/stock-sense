@@ -4,7 +4,6 @@
 //   items: [],
 //   setItems(items: any) {
 //     symbolData.items = items
-
 //   }
 // }
 

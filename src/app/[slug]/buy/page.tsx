@@ -5,13 +5,16 @@ import { getWatchlistData } from '@/app/utils/twelvedata';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+// import { uuid } from 'uuidv4';
 
 const Buy = () => {
   const [companyData, setCompanyData] = useState();
   const [userData, setUserData] = useState();
   const [count, setCount] = useState(1);
   const [boughtShares, setBoughtShares] = useState();
-  const [insufficientFunds, setInsufficientFunds] = useState(false);
 
   const router = useRouter();
   const { data: session } = useSession();
@@ -41,25 +44,24 @@ const Buy = () => {
     fetchData();
   }, []);
 
-  const purchaseData = {
+  const transactionData = {
     name: slug,
     quantity: count,
-    price: companyData?.close * count,
+    buyPrice: +companyData?.close,
+    totalPrice: +(companyData?.close * count).toFixed(2),
   };
+
+  console.log(transactionData);
 
   const updateUserHoldings = async () => {
     try {
-      const response = await axios.put(`/api/users?user=${session?.user?.email}`, purchaseData);
-      console.log(response.data);
-      if (response.data.message === 'Insufficient funds') {
-        setInsufficientFunds(true);
-      }
+      console.log('transactionData', transactionData);
+      await axios.put(`/api/users?user=${session?.user?.email}`, transactionData);
       router.push(`/${slug}`);
     } catch (error) {
       console.log('not good', error);
     }
   };
-  console.log(insufficientFunds);
 
   let userCurrentHoldings = 0;
   userData?.holdings.forEach(item => {
@@ -68,35 +70,56 @@ const Buy = () => {
     }
   });
 
-  console.log(boughtShares);
-
   return (
-    <>
-      <h1>Buy {slug}</h1>
-      <p>Market Order</p>
-      <p>
-        1 {slug} = {companyData?.close} {companyData?.currency}
-      </p>
-      <br />
-      <br />
-      <h3>{slug}</h3>
-      <p>Owned: {userCurrentHoldings} shares</p>
-      <br />
-      <br />
-      <h3>USD</h3>
-      <p>Capital: {userData?.cash}</p>
-      <br />
-      <br />
-      <p>
-        You are about to buy <strong>{count}</strong> shares
-      </p>
-      <button onClick={handleDecrement}>-</button>
-      <button onClick={handleIncrement}>+</button>
-      <br />
-      <br />
-      <button onClick={updateUserHoldings}>Buy {slug}</button>
-      {insufficientFunds && <p>Insufficient funds</p>}
-    </>
+    <section className="trade__layout">
+      <span className="back-btn__containter">
+        <Link href={`/`}>
+          <FontAwesomeIcon icon={faArrowLeft} className="back-btn" />
+        </Link>
+      </span>
+      <article className="trade-header">
+        <h1 className="trade-header-title">Buy {slug}</h1>
+        <p className="trade-header-info">Market Order</p>
+        <p className="trade-header-info">
+          1 {slug} = {companyData?.close} {companyData?.currency}
+        </p>
+      </article>
+      <article className="trade-card__layout">
+        <h3 className="trade-card-symbol">{slug}</h3>
+        <div className="trade-card-shares__layout">
+          <p className="trade-card-shares">{userCurrentHoldings} shares</p>
+          <p className="trade-card-owned">Owned</p>
+        </div>
+      </article>
+      <article className="trade-card__layout">
+        <p className="trade-card-capital">Capital Available</p>
+        <p className="trade-card-amount">{userData?.cash.toFixed(2)} USD</p>
+      </article>
+      <div className="trade-cal-layout">
+        <button onClick={handleDecrement} className="trade-cal-btn">
+          -
+        </button>
+        <p className="trade-amount">{count}</p>
+        <button onClick={handleIncrement} className="trade-cal-btn">
+          +
+        </button>
+      </div>
+      <div className="trade-total__layout">
+        <p className="trade-total-title">Total Price</p>
+        <p className="trade-total-price">
+          {(companyData?.close * count).toFixed(2)} {companyData?.currency}
+        </p>
+      </div>
+      {companyData?.close * count < userData?.cash ? (
+        <button onClick={updateUserHoldings} className="trade-btn">
+          Buy {slug}
+        </button>
+      ) : (
+        <button disabled className="disable-btn">
+          Insufficient Funds
+        </button>
+      )}
+    </section>
   );
 };
 

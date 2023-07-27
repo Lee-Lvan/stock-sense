@@ -12,7 +12,7 @@ const Signin = () => {
         <FontAwesomeIcon icon={faArrowLeft} className="back-btn"/>
         </Link>
       <h1 className="logo">StockSense</h1>
-      <p className="singin-subtitle">Sign In</p>
+      <p className="signin-subtitle">Sign In</p>
       <button className="auth-btn" onClick={() => signIn('github', { callbackUrl: '/' })}>
         With Github
       </button>
