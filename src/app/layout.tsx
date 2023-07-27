@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { Inter } from 'next/font/google';
 import { connectToMongo } from './utils/connectToMongo';
 import NextAuthProviders from './utils/nextAuthProviders';
@@ -23,14 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <NextAuthProviders>
           {children}
+          <Footer />
         </NextAuthProviders>
       </body>
-      <footer>
-        <p className="mark">Designed & Developed by Lee and Lvan</p>
-        <p className="stack">Powered by Next.js, MongoDB, TwelveData, ApexChart</p>
-        <br />
-        <p className="copyright">© 2023 StockSense Inc.</p>
-      </footer>
     </html>
   );
 }

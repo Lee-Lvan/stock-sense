@@ -102,7 +102,7 @@ const UserHomepage = () => {
   }, 0);
 
   const invested = userData?.holdings.reduce((accumulator, currentHolding) => {
-    return accumulator + currentHolding.totalPrice;
+    return accumulator + +currentHolding.totalPrice;
   }, 0);
 
   console.log(investmentTotal);
@@ -145,15 +145,6 @@ const UserHomepage = () => {
                     </li>
                   </Link>
                 ))}
-              {/* {results.reverse().map((item: IStock) => (
-                  <Link href={`/${item.symbol}`} className='single-result-layout'>
-                <li key={item._id} className='single-search-result'>
-                    <p className="symbol">{item.symbol}</p>
-                    <p className="name">{item.name}</p>
-                    <p className="exhange">{item.exchange}</p>
-                </li>
-                  </Link>
-              ))} */}
             </ul>
           )}
         </div>
@@ -182,12 +173,11 @@ const UserHomepage = () => {
           </div>
           <div className="capital-info-layout">
             <h4 className="capital-title">Capital Invested</h4>
-            <p className="capital-amount">{invested?.toLocaleString()} USD</p>
+            <p className="capital-amount">{invested} USD</p>
             <h4 className="capital-title">Capital Available</h4>
             <p className="capital-amount">{userData?.cash.toLocaleString()} USD</p>
           </div>
         </div>
-
         <div className="card-layout">
           <h2 className="card-title">Investments</h2>
           {userData?.holdings.map((item, index) => {
