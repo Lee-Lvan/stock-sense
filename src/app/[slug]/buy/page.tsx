@@ -18,7 +18,9 @@ const Buy = () => {
 
   const router = useRouter();
   const { data: session } = useSession();
-  const { slug } = useParams() as { slug: string };
+  const { exchange, slug } = useParams() as { exchange: string; slug: string };
+
+  console.log(exchange, slug);
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -36,7 +38,7 @@ const Buy = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const companyDataResponse = await getWatchlistData(slug);
+      const companyDataResponse = await getWatchlistData(slug, exchange);
       const userDataResponse = await axios.get(`/api/users?query=${session?.user?.email}`);
       setCompanyData(companyDataResponse);
       setUserData(userDataResponse.data);
@@ -47,6 +49,7 @@ const Buy = () => {
   const transactionData = {
     name: slug,
     quantity: count,
+    exchange: companyData?.exchange,
     buyPrice: +companyData?.close,
     totalPrice: +(companyData?.close * count).toFixed(2),
   };
@@ -57,7 +60,8 @@ const Buy = () => {
     try {
       console.log('transactionData', transactionData);
       await axios.put(`/api/users?user=${session?.user?.email}`, transactionData);
-      router.push(`/${slug}`);
+      // router.push(`/${companyData?.exchange}/${slug}`);
+      router.push(`/`);
     } catch (error) {
       console.log('not good', error);
     }
@@ -73,7 +77,7 @@ const Buy = () => {
   return (
     <section className="trade__layout">
       <span className="back-btn__containter">
-        <Link href={`/`}>
+        <Link href={`/${slug}`}>
           <FontAwesomeIcon icon={faArrowLeft} className="back-btn" />
         </Link>
       </span>
@@ -116,7 +120,7 @@ const Buy = () => {
         </button>
       ) : (
         <button disabled className="disable-btn">
-          Insufficient Funds
+          Insufficient Capital
         </button>
       )}
     </section>

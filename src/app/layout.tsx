@@ -21,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextAuthProviders>{children}</NextAuthProviders>
+        <NextAuthProviders>
+          {children}
+        </NextAuthProviders>
       </body>
       <footer>
         <p className="mark">Designed & Developed by Lee and Lvan</p>

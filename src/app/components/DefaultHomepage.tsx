@@ -8,7 +8,7 @@ import Link from 'next/link';
 const DefaultHomepage = ({ defaultData }) => {
   const [results, setResults] = useState<IStock[]>([]);
 
-  console.log(results)
+  console.log(results);
   const handleSetQuery = async (query: string) => {
     const response = await fetch(`/api/symbols?query=${query}`);
     const symbols = await response.json();
@@ -66,7 +66,7 @@ const DefaultHomepage = ({ defaultData }) => {
         <p className="date">{date}</p>
         <div className="search">
           <input
-            className="searchbar"
+            className="search-input"
             onChange={e => handleSetQuery(e.target.value)}
             type="text"
             name="searchbar"
@@ -74,16 +74,34 @@ const DefaultHomepage = ({ defaultData }) => {
             placeholder="Search for a stock"
           />
           {results && (
-            <ul>
-              {results.reverse().map((item: IStock) => (
-                <li key={item._id}>
-                  <Link href={`/${item.symbol}`}>
-                    {item.symbol} - {item.name} - {item.exchange}
+            <ul className="search-results">
+              {results
+                .filter(item => item.exchange === 'NASDAQ' || item.exchange === 'NYSE')
+                .reverse()
+                .map((item: IStock) => (
+                  <Link href={`/${item.symbol}`} className="single-result-layout" key={item._id}>
+                    <li className="single-search-result">
+                      <p className="symbol">{item.symbol}</p>
+                      <p className="name">{item.name}</p>
+                      <p className="exchange">{item.exchange}</p>
+                    </li>
                   </Link>
-                </li>
-              ))}
+                ))}
             </ul>
           )}
+          {/* {results && (
+            <ul className='search-results'>
+              {results.reverse().map((item: IStock) => (
+                 <Link href={`/${item.symbol}`} className='single-result-layout'>
+                <li key={item._id} className='single-search-result'>
+                    <p className="symbol">{item.symbol}</p>
+                    <p className="name">{item.name}</p>
+                    <p className="exhange">{item.exchange}</p>
+                </li>
+                  </Link>
+              ))}
+            </ul>
+          )} */}
         </div>
         <p className="signin-prompt">
           <Link href={'/signin'} className="signin-text">

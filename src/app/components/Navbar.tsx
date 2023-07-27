@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import axios from 'axios';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -14,20 +15,31 @@ const Navbar = () => {
     })();
   }
 
+  const pathname = usePathname();
+  useEffect(() => {
+    if (pathname === '/learn') {
+      setTrade(false);
+    }
+  }, []);
+
   return (
     <nav>
       <div className="header">
         <h1 className="logo">StockSense</h1>
         <div className="btn-layout">
-          {session &&
+        {session &&
             (trade ? (
-              <button onClick={() => setTrade(!trade)} className="mode-btn">
-                Trade
-              </button>
+              <Link href={'/learn'}>
+                <button onClick={() => setTrade(!trade)} className="mode-btn">
+                  Learn
+                </button>
+              </Link>
             ) : (
-              <button onClick={() => setTrade(!trade)} className="mode-btn">
-                Learn
-              </button>
+              <Link href={'/'}>
+                <button onClick={() => setTrade(!trade)} className="mode-btn">
+                  Trade
+                </button>
+              </Link>
             ))}
           {!session && (
             <Link href={'/signin'}>
@@ -41,7 +53,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {session && <p className="welcome-text">Welcome  {session.user?.email} !</p>}
+      {session && <p className="welcome-text">Welcome {session.user?.email} !</p>}
     </nav>
   );
 };

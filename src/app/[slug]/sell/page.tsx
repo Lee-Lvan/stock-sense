@@ -5,6 +5,9 @@ import { getWatchlistData } from '@/app/utils/twelvedata';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 const Sell = () => {
   const { data: session } = useSession();
@@ -68,34 +71,43 @@ const Sell = () => {
     console.log(transactionData);
     console.log(typeof transactionData);
     await axios.put(`/api/users?user=${session?.user?.email}`, transactionData);
-    router.push(`/${slug}/sell`);
+    router.push(`/`);
   };
 
   return (
-    <>
-      <h1>Sell {slug}</h1>
-      <p>Market Order</p>
-      <p>
-        Current Price = {companyData?.close} {companyData?.currency}
-      </p>
-
-      <br />
-      <br />
+    <section className="trade__layout">
+      <span className="back-btn__containter">
+        <Link href={`/${slug}`}>
+          <FontAwesomeIcon icon={faArrowLeft} className="back-btn" />
+        </Link>
+      </span>
+      <article className="trade-header">
+        <h1 className="trade-header-title">Sell {slug}</h1>
+        <p className="trade-header-info">Market Order</p>
+        <p className="trade-header-info">
+          1 {slug} = {companyData?.close} {companyData?.currency}
+        </p>
+      </article>
       {userCurrentHoldings !== 0 && (
-        <form onSubmit={handleSellOrder}>
-          <h3>Price</h3>
-          <h3>Buy Price</h3>
-          <h3>Shares</h3>
-          <h3>Sell</h3>
+        <form onSubmit={handleSellOrder} className="sell-card-list__layout">
           {userData?.holdings.map((item, index) => {
             if (item.name === slug) {
               return (
                 <>
                   <input type="hidden" name="_id" value={item._id} />
-                  <input type="text" name="symbol" disabled value={item.name} />
-                  <input type="text" name="buyPrice" disabled value={item.buyPrice} />
-                  <input type="text" name="shares" disabled value={item.quantity} />
+
+                  <article className="sell-card__layout">
+                    <div className='sell-card-header__layout'>
+                      <h3 className='sell-card-symbol'>{item.name}</h3>
+                      <p className='sell-card-info'>
+                        <span className='sell-card-quantity'>{item.quantity}</span>
+                         {' '}shares @ {' '}
+                        <span className='sell-card-price'>{item.buyPrice} {companyData?.currency}</span>
+                      </p>
+                    </div>
                   <input
+                    className="sell-card-input"
+                    // placeholder='0 shares'
                     type="number"
                     name="sellQuantity"
                     defaultValue={0}
@@ -103,21 +115,16 @@ const Sell = () => {
                     max={item.quantity}
                     required
                   />
-                  <br />
-                  <br />
+                  </article>
                 </>
               );
             }
           })}
-          <button>Sell {slug}</button>
+          <button className="sell-btn">Sell {slug}</button>
         </form>
       )}
-
-      {!userCurrentHoldings && <p>You have no shares to sell</p>}
-
-      <br />
-      <br />
-    </>
+      {!userCurrentHoldings && <button className="no-share" disabled>You have no shares to sell</button>}
+    </section>
   );
 };
 

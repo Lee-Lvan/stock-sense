@@ -11,6 +11,9 @@ import InvestmentItem from './InvestmentItem';
 
 const UserHomepage = () => {
   const [results, setResults] = useState<IStock[]>([]);
+  const [userData, setUserData] = useState();
+  const [watchlist, setWatchlist] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const handleSetQuery = async (query: string) => {
     const response = await fetch(`/api/symbols?query=${query}`);
@@ -53,10 +56,6 @@ const UserHomepage = () => {
   const date = getFormattedDate();
 
   const { data: session } = useSession();
-
-  const [userData, setUserData] = useState();
-  const [watchlist, setWatchlist] = useState([]);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,10 +102,21 @@ const UserHomepage = () => {
   }, 0);
 
   const invested = userData?.holdings.reduce((accumulator, currentHolding) => {
-    return accumulator + currentHolding.price;
+    return accumulator + currentHolding.totalPrice;
   }, 0);
 
   console.log(investmentTotal);
+
+  const portfolioPercentage = (
+    ((+userData?.cash.toFixed(2) + investmentTotal - 10000) / investmentTotal) *
+    100
+  ).toFixed(2);
+
+  console.log(invested);
+  console.log(results);
+  console.log(userData);
+  console.log(watchlist);
+  console.log(total);
 
   return (
     <div className="userhome-layout">
@@ -114,7 +124,7 @@ const UserHomepage = () => {
         <p className="date">{date}</p>
         <div className="search">
           <input
-            className="searchbar"
+            className="search-input"
             onChange={e => handleSetQuery(e.target.value)}
             type="text"
             name="searchbar"
@@ -122,21 +132,34 @@ const UserHomepage = () => {
             placeholder="Search for a stock"
           />
           {results && (
-            <ul>
-              {results.reverse().map((item: IStock) => (
-                <li key={item._id}>
-                  <Link href={`/${item.symbol}`}>
-                    {item.symbol} - {item.name} - {item.exchange}
+            <ul className="search-results">
+              {results
+                .filter(item => item.exchange === 'NASDAQ' || item.exchange === 'NYSE')
+                .reverse()
+                .map((item: IStock) => (
+                  <Link href={`/${item.symbol}`} className="single-result-layout" key={item._id}>
+                    <li className="single-search-result">
+                      <p className="symbol">{item.symbol}</p>
+                      <p className="name">{item.name}</p>
+                      <p className="exchange">{item.exchange}</p>
+                    </li>
                   </Link>
+                ))}
+              {/* {results.reverse().map((item: IStock) => (
+                  <Link href={`/${item.symbol}`} className='single-result-layout'>
+                <li key={item._id} className='single-search-result'>
+                    <p className="symbol">{item.symbol}</p>
+                    <p className="name">{item.name}</p>
+                    <p className="exhange">{item.exchange}</p>
                 </li>
-              ))}
+                  </Link>
+              ))} */}
             </ul>
           )}
         </div>
 
         <div className="card-layout">
           <h2 className="card-title">My Portfolio</h2>
-          <h3 className="balance-title card-item-layout">Portfolio Value</h3>
           <div className="card-item-layout">
             <p className="balance-amount">
               {(+userData?.cash.toFixed(2) + investmentTotal).toLocaleString()} USD
@@ -153,16 +176,13 @@ const UserHomepage = () => {
                 </p>
               )}
               <p className="card-item__change">
-                {(((+userData?.cash.toFixed(2) + investmentTotal) / investmentTotal) * 100).toFixed(
-                  2,
-                )}{' '}
-                %
+                {typeof portfolioPercentage === 'NaN' ? portfolioPercentage : 0} %
               </p>
             </div>
           </div>
           <div className="capital-info-layout">
             <h4 className="capital-title">Capital Invested</h4>
-            <p className="capital-amount">{invested?.toFixed(2)} USD</p>
+            <p className="capital-amount">{invested?.toLocaleString()} USD</p>
             <h4 className="capital-title">Capital Available</h4>
             <p className="capital-amount">{userData?.cash.toLocaleString()} USD</p>
           </div>
