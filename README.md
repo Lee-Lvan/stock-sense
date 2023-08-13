@@ -1,36 +1,27 @@
-PROBLEM - MONGOOSE DIDNT LIKE THAT THERE WAS A DB COLLECTION ALREADY AND WOULD ALWAYS MAKE A NEW COLLECTION AND RETURN THE OBVIOUSY EMPTY ARRAY INSTEAD OF LOOKING AT WHAT WAS ALREADY THERE
+# StockSense 📈
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A stock trading simulation app designed for newcomers to practice stock trading using in-app credits.
 
-## Getting Started
+[![StockSense Demo](/src/app/images/readme-demo-img.png)](https://videos.ctfassets.net/a5vwobnw8y4s/SHXJojdes0OFlOADwCEfF/dfdf9f924189d49b2988355c5c5c17e1/stock-sense-cover-video.mp4)
 
-First, run the development server:
+## Known Issues
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Deployment**: We're currently addressing a deployment issue. The app might not be accessible at times. Your patience is appreciated.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Current Work
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Resolving the deployment problem on Vercel. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- **Real-time Data**: Uses Twelve Data for live stock info.
+- **Visuals**: Implements ApexChart for stock trends.
+- **User Authentication**: Integrates Google and GitHub login via NextAuth.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- MongoDB
+- Twelve Data API
+- ApexChart
+- NextAuth
