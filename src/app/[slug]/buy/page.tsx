@@ -8,13 +8,16 @@ import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-// import { uuid } from 'uuidv4';
+import { IWatchlistData } from '@/app/types/Symbol.type';
+import { IUser } from '@/app/interfaces/IUser';
 
 const Buy = () => {
-  const [companyData, setCompanyData] = useState();
-  const [userData, setUserData] = useState();
+  const [companyData, setCompanyData] = useState<IWatchlistData | null>(null);
+  const [userData, setUserData] = useState<IUser | null>(null);
   const [count, setCount] = useState(1);
-  const [boughtShares, setBoughtShares] = useState();
+  // const [boughtShares, setBoughtShares] = useState();
+
+  console.log('userDataResponse', userData);
 
   const router = useRouter();
   const { data: session } = useSession();
@@ -32,13 +35,13 @@ const Buy = () => {
     }
   };
 
-  const handleBuyShares = () => {
-    setBoughtShares(count);
-  };
+  // const handleBuyShares = () => {
+  //   setBoughtShares(count);
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
-      const companyDataResponse = await getWatchlistData(slug, exchange);
+      const companyDataResponse = await getWatchlistData(exchange);
       const userDataResponse = await axios.get(`/api/users?query=${session?.user?.email}`);
       setCompanyData(companyDataResponse);
       setUserData(userDataResponse.data);
@@ -50,11 +53,9 @@ const Buy = () => {
     name: slug,
     quantity: count,
     exchange: companyData?.exchange,
-    buyPrice: +companyData?.close,
-    totalPrice: +(companyData?.close * count).toFixed(2),
+    buyPrice: companyData?.close,
+    totalPrice: (companyData && (+companyData?.close * count).toFixed(2)),
   };
-
-  console.log(transactionData);
 
   const updateUserHoldings = async () => {
     try {
@@ -111,10 +112,10 @@ const Buy = () => {
       <div className="trade-total__layout">
         <p className="trade-total-title">Total Price</p>
         <p className="trade-total-price">
-          {(companyData?.close * count).toFixed(2)} {companyData?.currency}
+          {companyData && (+companyData?.close * count).toFixed(2)} {companyData?.currency}
         </p>
       </div>
-      {companyData?.close * count < userData?.cash ? (
+      {companyData && +companyData?.close * count < (userData && userData?.cash)? (
         <button onClick={updateUserHoldings} className="trade-btn">
           Buy {slug}
         </button>
