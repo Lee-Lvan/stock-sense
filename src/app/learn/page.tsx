@@ -36,7 +36,7 @@ const LearnMode = () => {
         <ul>
           <li>
             Stock: A stock represents ownership in a company and constitutes a claim on part of the
-            company's assets and earnings.
+            companys assets and earnings.
           </li>
           <li>Shares: These are the individual units of a company's stock that investors buy.</li>
           <li>
