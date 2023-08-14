@@ -1,15 +1,15 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { getWatchlistData } from '@/app/utils/twelvedata';
-import axios from 'axios';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
-import { IWatchlistData } from '@/app/types/Symbol.type';
-import { IUser } from '@/app/interfaces/IUser';
+"use client";
+import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { getWatchlistData } from "@/app/utils/twelvedata";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import { IWatchlistData } from "@/app/types/Symbol.type";
+import { IUser } from "@/app/interfaces/IUser";
 
 const Buy = () => {
   const [companyData, setCompanyData] = useState<IWatchlistData | null>(null);
@@ -17,7 +17,7 @@ const Buy = () => {
   const [count, setCount] = useState(1);
   // const [boughtShares, setBoughtShares] = useState();
 
-  console.log('userDataResponse', userData);
+  console.log("userDataResponse", userData);
 
   const router = useRouter();
   const { data: session } = useSession();
@@ -42,7 +42,9 @@ const Buy = () => {
   useEffect(() => {
     const fetchData = async () => {
       const companyDataResponse = await getWatchlistData(exchange);
-      const userDataResponse = await axios.get(`/api/users?query=${session?.user?.email}`);
+      const userDataResponse = await axios.get(
+        `/api/users?query=${session?.user?.email}`
+      );
       setCompanyData(companyDataResponse);
       setUserData(userDataResponse.data);
     };
@@ -54,22 +56,25 @@ const Buy = () => {
     quantity: count,
     exchange: companyData?.exchange,
     buyPrice: companyData?.close,
-    totalPrice: (companyData && (+companyData?.close * count).toFixed(2)),
+    totalPrice: companyData && (+companyData?.close * count).toFixed(2),
   };
 
   const updateUserHoldings = async () => {
     try {
-      console.log('transactionData', transactionData);
-      await axios.put(`/api/users?user=${session?.user?.email}`, transactionData);
+      console.log("transactionData", transactionData);
+      await axios.put(
+        `/api/users?user=${session?.user?.email}`,
+        transactionData
+      );
       // router.push(`/${companyData?.exchange}/${slug}`);
       router.push(`/`);
     } catch (error) {
-      console.log('not good', error);
+      console.log("not good", error);
     }
   };
 
   let userCurrentHoldings = 0;
-  userData?.holdings.forEach(item => {
+  userData?.holdings.forEach((item) => {
     if (item.name === slug) {
       userCurrentHoldings += +item.quantity;
     }
@@ -112,10 +117,11 @@ const Buy = () => {
       <div className="trade-total__layout">
         <p className="trade-total-title">Total Price</p>
         <p className="trade-total-price">
-          {companyData && (+companyData?.close * count).toFixed(2)} {companyData?.currency}
+          {companyData && (+companyData?.close * count).toFixed(2)}{" "}
+          {companyData?.currency}
         </p>
       </div>
-      {companyData && +companyData?.close * count < (userData && userData?.cash)? (
+      {companyData && userData && +companyData.close * count < userData.cash ? (
         <button onClick={updateUserHoldings} className="trade-btn">
           Buy {slug}
         </button>
