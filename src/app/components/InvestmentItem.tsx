@@ -26,24 +26,18 @@ const InvestmentItem: React.FC<InvestmentItemProps> = ({ item }) => {
           </p>
         </div>
         <div className="card-item__info">
-          {item.currentWorth < item.totalPrice ? (
-            <p className="card-item__price-red">
-              {Number(item.currentWorth).toFixed(2) === 'NaN' ? (
-                <span>Loading...</span>
-              ) : (
-                Number(item.currentWorth).toFixed(2)
-              )}{' '}
-              USD
+          {typeof item.currentWorth === 'number' ? (
+            <p
+              className={
+                +item.currentWorth < +item.totalPrice
+                  ? 'card-item__price-red'
+                  : 'card-item__price-green'
+              }
+            >
+              {Number(item.currentWorth).toFixed(2)} USD
             </p>
           ) : (
-            <p className="card-item__price-green">
-              {Number(item.currentWorth).toFixed(2) === 'NaN' ? (
-                <span>Loading...</span>
-              ) : (
-                Number(item.currentWorth).toFixed(2)
-              )}{' '}
-              USD
-            </p>
+            <span>Loading...</span>
           )}
           <p className="card-item__change">
             {(
