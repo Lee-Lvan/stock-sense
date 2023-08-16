@@ -9,22 +9,8 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
-type CompanyData = {
-  symbol: string;
-  name: string;
-  exchange: string;
-  is_market_open: boolean;
-  close: string;
-  currency: string;
-  change: string;
-  percent_change: string;
-  volume: string;
-  fifty_two_week: {
-    low: string;
-    high: string;
-  };
-};
+import Loader from '../components/Loader';
+import { CompanyData } from '../types/CompanyData.type';
 
 const Symbol = ({ params }: { params: { slug: string } }) => {
   const { data: session } = useSession();
@@ -85,6 +71,7 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
           <FontAwesomeIcon icon={faArrowLeft} className="back-btn" />
         </Link>
       </span>
+      {!companyData && <Loader />}
       {companyData && (
         <>
           <article className="single-stock__header-layout">
