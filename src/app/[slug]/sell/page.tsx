@@ -44,7 +44,7 @@ const Sell = () => {
     }
   });
 
-  const handleSellOrder = async e => {
+  const handleSellOrder = async (e: any) => {
     e.preventDefault();
     const form = e.target;
     const sellQuantityData = form.elements.sellQuantity;
