@@ -1,0 +1,1329 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito+Sans:wght@400;600;700;900;1000&display=swap');
+
+:root {
+  --primary-navy: #051626;
+  --primary-blue: #123155;
+  --primary-header: #03346d;
+  --secondary-gold: #f2a341;
+  --secondary-sand: #efd696;
+  --accent-teal: #53a7a0;
+  --accent-olive: #768c82;
+  --accent-ice: #fdfffc;
+  --accent-slate: #d9dddd;
+  --accent-red: #be3a4a;
+  --accent-green: #49b969;
+}
+
+/* Global START ------------------------------------ */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.main {
+  width: 100%;
+  flex-grow: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-navy);
+  color: var(--accent-slate);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10%;
+  margin-top: 1.875rem;
+  padding: 1rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-navy);
+  border-top: 1px solid var(--secondary-gold);
+}
+
+.linkedin {
+  color: var(--secondary-gold);
+}
+
+.mark {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-slate);
+}
+
+.stack {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.copyright {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-slate);
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--secondary-sand);
+}
+
+button {
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.disable-btn {
+  color: red;
+}
+
+.back-btn {
+  font-size: 1.625rem;
+  color: var(--accent-olive);
+}
+
+.card-layout {
+  display: flex;
+  width: 100%;
+  margin: 1.625rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  background: var(--primary-blue);
+}
+
+.card-title {
+  display: flex;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-item-layout {
+  display: flex;
+  width: 100%;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.card-item {
+  display: flex;
+  width: 100%;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.card-item__header {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-item__header-symbol {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+}
+
+.card-item__header-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.card-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.card-item__price-red {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-red);
+}
+
+.card-item__price-green {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.card-item__change {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+/* Global END ------------------------------------ */
+
+/* Navbar START ------------------------------------ */
+
+nav {
+  display: flex;
+  width: 100%;
+  padding: 2.375rem 1.625rem 1rem 1.625rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background: var(--primary-navy);
+  border-bottom: 1px solid var(--secondary-gold);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.875rem;
+  font-style: normal;
+  font-weight: 900;
+  color: var(--secondary-sand);
+}
+
+.btn-layout {
+  display: flex;
+  width: 11.375rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.375rem;
+  flex-shrink: 0;
+}
+
+.mode-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--accent-teal);
+}
+
+.signin-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border: 1px solid var(--secondary-sand);
+  background: var(--primary-navy);
+  color: var(--accent-slate);
+}
+
+.signout-btn {
+  display: flex;
+  width: 5rem;
+  height: 2.25rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--secondary-sand);
+}
+
+.welcome-text {
+  display: flex;
+  width: 100%;
+  padding: 0 0.625rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 1rem;
+  color: var(--accent-slate);
+}
+
+/* Navbar END ------------------------------------ */
+
+/* Default Home Screen  START ------------------------------------ */
+
+.default-layout {
+  display: flex;
+  width: 80%;
+  padding-top: 30%;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  display: flex;
+  width: 80%;
+  height: 1.875rem;
+  justify-content: center;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-results {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  right: 0%;
+  background-color: var(--primary-blue);
+  border: var(--secondary-sand) 0.5px solid;
+  border-radius: 0.75rem;
+}
+
+.single-result-layout {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  /* gap: 1rem; */
+}
+
+.single-search-result {
+  display: flex;
+  margin: 0.625rem;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search-input {
+  display: flex;
+  width: 100%;
+  height: 3.125rem;
+  padding: 0.625rem 0.8125rem;
+  margin-top: 1.625rem;
+  align-items: center;
+  gap: 0.625rem;
+  border: none;
+  background: transparent;
+  color: var(--accent-slate);
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+::placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.signin-prompt {
+  display: flex;
+  width: 23.625rem;
+  height: 3.875rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent-slate);
+}
+
+.signin-text {
+  color: var(--secondary-sand);
+}
+
+/* Default Home Screen  END ------------------------------------ */
+
+/* Sign In Screen  START ------------------------------------ */
+
+.signin-layout {
+  display: flex;
+  width: 90%;
+  height: 100vh;
+  padding: 3.4375rem 1.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem;
+}
+
+.signin-subtitle {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--secondary-sand);
+}
+
+.auth-btn {
+  display: flex;
+  width: 20.75rem;
+  height: 3.125rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-ice);
+  background: var(--primary-blue);
+}
+
+/* Sign In Screen  END ------------------------------------ */
+
+/* User Home Screen START ------------------------------------ */
+
+.userhome-layout {
+  display: flex;
+  width: 80%;
+  padding-top: 40%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  margin-inline: auto;
+}
+
+.userhome-left {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balance-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--secondary-gold);
+}
+
+.balance-amount {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-ice);
+}
+
+.capital-info-layout {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.capital-title {
+  font-size: 0.875rem;
+  width: 40%;
+  font-weight: 400;
+  color: var(--secondary-sand);
+}
+
+.capital-amount {
+  font-size: 0.875rem;
+  width: 40%;
+  font-weight: 400;
+  color: var(--accent-ice);
+  padding: 0.625rem;
+  text-align: end;
+}
+
+/* User Home Screen END ------------------------------------ */
+
+/* Single Stock START ------------------------------------ */
+
+.single-stock__layout {
+  display: flex;
+  width: 90%;
+  min-height: 80vh;
+  padding: 3.75rem 0 0 0.6875rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.625rem;
+}
+
+.back-btn__containter {
+  display: flex;
+  width: 100%;
+  height: 2.5625rem;
+  padding: 0.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.875rem;
+}
+
+.single-stock__header-layout {
+  display: flex;
+  width: 90%;
+  align-items: flex-start;
+  gap: 5.0625rem;
+}
+
+.single-stock__header {
+  display: flex;
+  width: 100%;
+  padding: 0.625rem;
+  align-items: baseline;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.single-stock__header-symbol {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-ice);
+}
+
+.single-stock__header-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-ice);
+}
+
+.single-stock__header-exchange {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.single-stock__header-market {
+  width: 50%;
+  padding: 0.625rem;
+  gap: 0.625rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: end;
+}
+
+.market-open {
+  color: var(--accent-green);
+}
+
+.market-closed {
+  color: var(--accent-red);
+}
+
+.single-stock__price-layout {
+  display: flex;
+  width: 90%;
+  padding: 0.625rem;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.single-stock__price {
+  color: var(--accent-ice);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.single-stock__price-change {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.single-stock__price-red {
+  color: var(--accent-red);
+}
+
+.single-stock__price-green {
+  color: var(--accent-green);
+}
+
+.single-stock__period-layout {
+  display: flex;
+  width: 80%;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.single-stock__period-btn {
+  width: 80%;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: none;
+  cursor: pointer;
+  color: var(--accent-slate);
+}
+
+.separator {
+  color: var(--accent-olive);
+}
+
+.single-stock__chart {
+  width: 100%;
+}
+
+.single-stock__trade-layout {
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.single-stock__trade-btn {
+  display: flex;
+  width: 8.0625rem;
+  height: 2.875rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--primary-blue);
+  color: var(--accent-ice);
+}
+
+.single-stock__meta-layout {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.single-stock__meta {
+  display: flex;
+  width: 50%;
+  padding: 0.625rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.single-stock__meta-metric {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent-olive);
+}
+
+.single-stock__meta-data {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-slate);
+}
+
+/* Single Stock END ------------------------------------ */
+
+/* buy START ------------------------------------ */
+
+.trade__layout {
+  display: flex;
+  width: 90%;
+  height: 100vh;
+  padding: 3.4375rem 1.625rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+}
+
+.trade-header {
+  display: flex;
+  width: 23.625rem;
+  padding: 0.625rem;
+  align-items: center;
+  gap: 1.0625rem;
+  flex-wrap: wrap;
+}
+
+.trade-header-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-ice);
+}
+
+.trade-header-info {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--secondary-sand);
+}
+
+.trade-card__layout {
+  display: flex;
+  width: 23.625rem;
+  height: 6.25rem;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background: var(--primary-blue);
+}
+
+.trade-card-symbol {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-ice);
+}
+
+.trade-card-shares__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.trade-card-shares {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--accent-ice);
+}
+
+.trade-card-owned {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.trade-card-capital {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.trade-card-amount {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--accent-ice);
+}
+
+.trade-cal-layout {
+  display: flex;
+  width: 50%;
+  padding-top: 2.5rem;
+  justify-content: center;
+  align-items: baseline;
+  gap: 3.375rem;
+}
+
+.trade-cal-btn {
+  display: flex;
+  width: 2.875rem;
+  height: 2.875rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+  background: var(--primary-blue);
+}
+
+.trade-amount {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+}
+
+.trade-total__layout {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-bottom: 0;
+  gap: 0.625rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.trade-total-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-slate);
+}
+
+.trade-total-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary-sand);
+}
+
+.trade-btn {
+  display: flex;
+  width: 9.0625rem;
+  height: 3rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--primary-blue);
+  color: var(--accent-ice);
+}
+
+.disable-btn {
+  display: flex;
+  width: 13rem;
+  height: 3rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--primary-blue);
+  color: var(--accent-red);
+}
+
+/* Buy END ------------------------------------ */
+
+/* Sell START ------------------------------------ */
+
+.sell-card-list__layout {
+  display: flex;
+  width: 100%;
+  /* padding: 1.875rem 1.625rem; */
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+}
+
+.sell-card__layout {
+  display: flex;
+  width: 23.625rem;
+  height: 6.25rem;
+  padding: 0.625rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background: var(--primary-blue);
+}
+
+.sell-card-header__layout {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.sell-card-symbol {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-ice);
+}
+
+.sell-card-info {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-olive);
+}
+
+.sell-card-quantity {
+  color: var(--accent-green);
+}
+
+.sell-card-price {
+  color: var(--accent-green);
+}
+
+.sell-card-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.125rem;
+  font-weight: 700;
+  width: 5%;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+  color: var(--accent-ice);
+  border-bottom: 2px solid var(--accent-olive);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.sell-btn {
+  display: flex;
+  width: 9.0625rem;
+  height: 3rem;
+  padding: 0.625rem 1.5rem;
+  margin-top: 2.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--primary-blue);
+  color: var(--accent-ice);
+}
+
+.no-share {
+  display: flex;
+  width: 80%;
+  height: 3rem;
+  padding: 0.625rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--primary-blue);
+  color: var(--accent-red);
+}
+
+/* Sell SEND ------------------------------------ */
+
+/* Learn START ------------------------------------ */
+
+.learn-layout {
+  display: flex;
+  width: 90%;
+  padding: 12%;
+  padding-top: 40%;
+  margin-inline: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.875rem;
+}
+
+.learn-img {
+  width: 100vw;
+  padding: 0 0.625rem;
+}
+
+/* Learn END ------------------------------------ */
+
+@media screen and (max-width: 375px) {
+  .logo {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 900;
+    color: var(--secondary-sand);
+  }
+
+  .mode-btn {
+    display: flex;
+    width: 4.25rem;
+    height: 2rem;
+  }
+
+  .signin-btn {
+    display: flex;
+    width: 4.25rem;
+    height: 2rem;
+    padding: 0.625rem;
+    gap: 0.625rem;
+  }
+
+  .signout-btn {
+    display: flex;
+    width: 4.25rem;
+    height: 2rem;
+  }
+
+  button {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .auth-btn {
+    width: 18rem;
+  }
+
+  .userhome-layout {
+    padding-top: 45%;
+  }
+
+  .default-layout {
+    padding-top: 35%;
+  }
+
+  .learn-layout {
+    padding-top: 60%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .welcome-text {
+    display: flex;
+    width: 74%;
+  }
+
+  .userhome-layout {
+    padding-top: 30%;
+  }
+
+  .default-layout {
+    padding-top: 30%;
+  }
+
+  .learn-layout {
+    padding-top: 40%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .userhome-layout {
+    padding-top: 30%;
+  }
+
+  .default-layout {
+    padding-top: 22%;
+  }
+
+  .learn-layout {
+    padding-top: 22%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .userhome-layout {
+    padding-top: 20%;
+  }
+
+  .default-layout {
+    padding-top: 18%;
+  }
+
+  .learn-layout {
+    padding-top: 22%;
+  }
+}
+
+@media screen and (min-width: 926px) {
+  /* Global START */
+
+  .learn-layout {
+    padding-top: 14%;
+  }
+
+  footer {
+    display: flex;
+    width: 100%;
+    padding: 1rem 3rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  /* Global END */
+
+  /* Navbar START */
+  nav {
+    display: flex;
+    width: 100%;
+    padding: 1rem 7.5rem 0.625rem 7.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: var(--secondary-sand);
+  }
+
+  .btn-layout {
+    display: flex;
+    width: 60%;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4.5rem;
+  }
+
+  .signin-btn {
+    width: 8.75rem;
+    height: 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  .signout-btn {
+    width: 8.75rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background: var(--secondary-sand);
+    color: var(--primary-navy);
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  .mode-btn {
+    width: 8.75rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--primary-navy);
+    background: var(--accent-teal);
+  }
+
+  .welcome-text {
+    display: flex;
+    width: 100%;
+    padding: 0.625rem;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-slate);
+  }
+
+  /* Navbar END */
+
+  /* Signin START */
+
+  .auth-btn {
+    width: 23.75rem;
+  }
+
+  /* Signin END */
+
+  /* Default Home START */
+
+  .default-layout {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    margin-top: 10%;
+    justify-content: center;
+    padding: 1.25rem 3.75rem;
+    align-items: flex-start;
+    gap: 10%;
+    flex-wrap: nowrap;
+    margin-inline: auto;
+  }
+
+  .left {
+    display: flex;
+    /* width: 80%; */
+    padding: 0 1.875rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.25rem;
+  }
+
+  .date {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.75rem;
+  }
+
+  .signin-prompt {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .card-layout {
+    display: flex;
+    min-width: 50%;
+    padding: 1rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .card-item-layout {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    row-gap: 0.625rem;
+    flex-wrap: wrap;
+  }
+
+  .card-item__header-symbol {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .card-item__header-name {
+    font-size: 1rem;
+  }
+
+  .card-item__price-red {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .card-item__price-green {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .card-item__change {
+    font-size: 1rem;
+  }
+
+  /* Default Home END */
+
+  /* User Home START */
+
+  .userhome-layout {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    padding: 0 3.75rem;
+    padding-top: 14%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-inline: auto;
+    gap: 2%;
+  }
+
+  .userhome-left {
+    display: flex;
+    /* width: 44%; */
+    /* padding: 10%; */
+    padding: 0 1.875rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .balance-title {
+    font-size: 1.25rem;
+  }
+
+  .balance-amount {
+    font-size: 1.5rem;
+  }
+
+  .capital-info-layout {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0.625rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .capital-title {
+    font-size: 1rem;
+    width: 40%;
+  }
+
+  .capital-amount {
+    font-size: 1rem;
+    width: 40%;
+  }
+
+  /* User Home END */
+
+  /* Single START */
+
+  .single-stock__meta-layout {
+    width: 80%;
+  }
+
+  /* Single END */
+
+  /* Sell START */
+
+  /* Sell END */
+}
+
+@media screen and (min-width: 2000px) {
+  .userhome-layout {
+    padding-top: 10%;
+  }
+
+  .default-layout {
+    padding-top: 10%;
+  }
+
+  .learn-layout {
+    padding: 10%;
+  }
+}

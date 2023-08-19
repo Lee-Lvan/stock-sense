@@ -14,6 +14,7 @@ const Searchbar = () => {
   return (
     <>
       <input
+        className='searchbar'
         onChange={e => handleSetQuery(e.target.value)}
         type="text"
         name="searchbar"

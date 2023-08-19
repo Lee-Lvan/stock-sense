@@ -1,3 +1,6 @@
+import { ObjectId } from "mongodb";
+
 export type WatchlistT = {
-  id: string;
+  _id: ObjectId;
+  name: string;
 };
