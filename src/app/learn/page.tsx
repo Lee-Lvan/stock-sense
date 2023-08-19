@@ -24,23 +24,23 @@ const LearnMode = () => {
           capital is by selling off pieces of their company, known as stocks or shares, to the
           public. The stock market acts as a facilitator for this process. In return for their
           investment, stockholders hope the company will be successful and their shares will
-          increase in value. They might also receive a part of the company's profits in the form of
+          increase in value. They might also receive a part of the company&apos;s profits in the form of
           dividends.
         </p>
         <p>
           The stock market is the pulse of the economy, reflecting the overall health of the
-          country's business sector.
+          country&apos;s business sector.
         </p>
         <h3> Understanding Key Terms </h3>
-        <p>Here are some of the key terms you'll need to know:</p>
+        <p>Here are some of the key terms you&apos;ll need to know:</p>
         <ul>
           <li>
             Stock: A stock represents ownership in a company and constitutes a claim on part of the
-            company's assets and earnings.
+            company&apos;s assets and earnings.
           </li>
-          <li>Shares: These are the individual units of a company's stock that investors buy.</li>
+          <li>Shares: These are the individual units of a company&apos;s stock that investors buy.</li>
           <li>
-            Dividends: These are a portion of a company's earnings that are paid out to
+            Dividends: These are a portion of a company&apos;s earnings that are paid out to
             shareholders, typically on a quarterly basis.
           </li>
           <li>
@@ -49,14 +49,14 @@ const LearnMode = () => {
           </li>
         </ul>
         <h3>Overview of Major Stock Exchanges</h3>
-        <p>Let's take a world tour of some of the major stock exchanges:</p>
+        <p>Let&apos;s take a world tour of some of the major stock exchanges:</p>
         <ul>
           <li>
-            New York Stock Exchange (NYSE): One of the world's largest stock exchanges by market
+            New York Stock Exchange (NYSE): One of the world&apos;s largest stock exchanges by market
             capitalization, located in New York City, USA.
           </li>
           <li>
-            NASDAQ: Known for its large volume of technology stocks, it's also based in the USA.
+            NASDAQ: Known for its large volume of technology stocks, it&apos;s also based in the USA.
           </li>
           <li>
             London Stock Exchange (LSE): One of the oldest stock exchanges in the world, located in
@@ -72,7 +72,7 @@ const LearnMode = () => {
         <p>
           When we talk about an upwards trend in the stock market, it means that the prices of
           certain stocks are going up over time. This is good news for investors because it shows
-          that people are interested in buying those stocks, and the value is increasing. It's like
+          that people are interested in buying those stocks, and the value is increasing. It&apos;s like
           a positive signal that investors are feeling confident about the companies behind the
           stocks and their future growth. During an upwards trend, people who own those stocks may
           see their investment grow and make some money.
@@ -81,14 +81,14 @@ const LearnMode = () => {
           An upwards trend happens when more and more people want to buy a particular stock. This
           usually occurs because the company is doing well, making profits, or has exciting plans
           for the future. As the demand for the stock increases, the price goes up too. When
-          investors see this happening, they might think it's a good time to get in on the action
+          investors see this happening, they might think it&apos;s a good time to get in on the action
           and buy some of those stocks too. This can create a cycle where more people buying leads
           to even more price increases.
         </p>
         <p>
           For investors, spotting an upwards trend is essential because it can be an opportunity to
           make money. They use tools and methods to understand if a stock is on an upwards trend.
-          Some look at the history of the stock's prices, while others analyze the company's
+          Some look at the history of the stock&apos;s prices, while others analyze the company&apos;s
           performance and financial health. When they see a trend going up, they might decide to
           invest their money in those stocks, hoping the prices will keep rising.
         </p>
@@ -98,8 +98,8 @@ const LearnMode = () => {
           A downward trend in the stock market means that stock prices are going down over time.
           This can happen when many investors are selling their stocks, and not many people are
           buying. During a downward trend, investors might lose money because the value of their
-          stocks decreases. It's like a signal that people are worried about the economy or
-          companies' performance, and they don't want to invest in stocks.
+          stocks decreases. It&apos;s like a signal that people are worried about the economy or
+          companies&apos; performance, and they don&apos;t want to invest in stocks.
         </p>
         <p>
           In a downward trend, bad news about the economy or companies can make investors feel
@@ -112,7 +112,7 @@ const LearnMode = () => {
           Some tools can help figure out if the trend is going down, like looking at how stock
           prices have been changing. Investors might also look at how well companies are doing and
           if they expect things to get better soon. If they think stocks will keep going down, they
-          might choose to sell or keep more money in cash for now. It's essential to stay informed,
+          might choose to sell or keep more money in cash for now. It&apos;s essential to stay informed,
           be patient, and not make hasty decisions during a downward trend.
         </p>
         <Image src={downwardstrend} width={500} height={500} alt="Upwards Trend" className='learn-img'/>
@@ -121,12 +121,12 @@ const LearnMode = () => {
           A sideways trend in the stock market occurs when the prices of stocks stay relatively
           stable over a period of time. During this trend, there is not much significant movement in
           stock prices, and they tend to trade within a narrow range. Investors might notice that
-          the overall direction of the market is neither rising nor falling sharply. It's like a
+          the overall direction of the market is neither rising nor falling sharply. It&apos;s like a
           temporary pause in the market, where buyers and sellers are in a balance, resulting in
           little overall change in stock prices.
         </p>
         <p>
-          In a sideways trend, investors may feel unsure about the market's next move, as there is
+          In a sideways trend, investors may feel unsure about the market&apos;s next move, as there is
           no clear indication of an upward or downward trend. This uncertainty can lead to lower
           trading volumes, as people may choose to wait for a clearer market direction before making
           significant investment decisions. During this time, traders might look for short-term
@@ -139,7 +139,6 @@ const LearnMode = () => {
     </>
   );
 };
-
 export default LearnMode;
 
 // /src/app/images/upwardstrend.png

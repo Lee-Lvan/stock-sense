@@ -1,7 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import { CompanyData } from '../types/CompanyData.type';
 
-const WatchlistItem = ({ item }) => {
+type WatchlistItemProps = {
+  item: CompanyData;
+};
+
+const WatchlistItem: React.FC<WatchlistItemProps> = ({ item }) => {
+  console.log(item);
   return (
     <Link href={`/${item.symbol}`} className="card-item-layout">
       <article className="card-item">
@@ -10,13 +16,15 @@ const WatchlistItem = ({ item }) => {
           <p className="card-item__header-name">{item.name}</p>
         </div>
         <div className="card-item__info">
-          {item.percent_change < 0 ? (
+          {+item.percent_change < 0 ? (
             <p className="card-item__price-red">
-              {item.close ? item.close : <span>Loading...</span>} {item.currency}
+              {item.close ? item.close : <span>Loading...</span>}{' '}
+              {item.currency}
             </p>
           ) : (
             <p className="card-item__price-green">
-              {item.close ? item.close : <span>Loading...</span>} {item.currency}
+              {item.close ? item.close : <span>Loading...</span>}{' '}
+              {item.currency}
             </p>
           )}
           <p className="card-item__change">{item.percent_change} %</p>

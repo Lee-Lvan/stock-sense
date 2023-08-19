@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito+Sans:wght@400;600;700;900;1000&display=swap');
 
 :root {
-  --primary-navy: #051626;        
+  --primary-navy: #051626;
   --primary-blue: #123155;
-  --primary-header: #03346D;        
-  --secondary-gold: #F2A341;      
-  --secondary-sand: #EFD696;
-  --accent-teal: #53A7A0;        
-  --accent-olive: #768C82; 
-  --accent-ice: #FDFFFC;    
-  --accent-slate: #D9DDDD;
-  --accent-red: #BE3A4A;
-  --accent-green: #49B969;
+  --primary-header: #03346d;
+  --secondary-gold: #f2a341;
+  --secondary-sand: #efd696;
+  --accent-teal: #53a7a0;
+  --accent-olive: #768c82;
+  --accent-ice: #fdfffc;
+  --accent-slate: #d9dddd;
+  --accent-red: #be3a4a;
+  --accent-green: #49b969;
 }
-
 
 /* Global START ------------------------------------ */
 
@@ -64,7 +63,7 @@ footer {
 .stack {
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--accent-olive)
+  color: var(--accent-olive);
 }
 
 .copyright {
@@ -117,7 +116,7 @@ button {
   padding: 0.625rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem; 
+  gap: 1rem;
   border-radius: 0.75rem;
   background: var(--primary-blue);
 }
@@ -191,7 +190,6 @@ button {
 }
 
 /* Global END ------------------------------------ */
-
 
 /* Navbar START ------------------------------------ */
 
@@ -272,15 +270,14 @@ nav {
 .welcome-text {
   display: flex;
   width: 100%;
-  padding: 0rem 0.625rem;
+  padding: 0 0.625rem;
   align-items: flex-start;
-  gap: 0.625rem;  
+  gap: 0.625rem;
   font-size: 1rem;
   color: var(--accent-slate);
 }
 
 /* Navbar END ------------------------------------ */
-
 
 /* Default Home Screen  START ------------------------------------ */
 
@@ -325,7 +322,7 @@ nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 100%; 
+  width: 100%;
   position: absolute;
   top: 100%;
   left: 0%;
@@ -389,12 +386,10 @@ nav {
 }
 
 .signin-text {
-  color: var(--secondary-sand)
+  color: var(--secondary-sand);
 }
 
 /* Default Home Screen  END ------------------------------------ */
-
-
 
 /* Sign In Screen  START ------------------------------------ */
 
@@ -429,7 +424,6 @@ nav {
 
 /* Sign In Screen  END ------------------------------------ */
 
-
 /* User Home Screen START ------------------------------------ */
 
 .userhome-layout {
@@ -460,7 +454,6 @@ nav {
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--accent-ice);
-
 }
 
 .capital-info-layout {
@@ -489,19 +482,18 @@ nav {
   text-align: end;
 }
 
-
 /* User Home Screen END ------------------------------------ */
-
 
 /* Single Stock START ------------------------------------ */
 
 .single-stock__layout {
   display: flex;
   width: 90%;
+  min-height: 80vh;
   padding: 3.75rem 0 0 0.6875rem;
   flex-direction: column;
   align-items: center;
-  gap: 1.625rem;  
+  gap: 1.625rem;
 }
 
 .back-btn__containter {
@@ -650,7 +642,7 @@ nav {
   flex-wrap: wrap;
 }
 
-.single-stock__meta{
+.single-stock__meta {
   display: flex;
   width: 50%;
   padding: 0.625rem;
@@ -673,7 +665,6 @@ nav {
 }
 
 /* Single Stock END ------------------------------------ */
-
 
 /* buy START ------------------------------------ */
 
@@ -789,7 +780,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   gap: 0.625rem;
   justify-content: space-evenly;
   align-items: center;
@@ -804,7 +795,7 @@ nav {
 .trade-total-price {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--secondary-sand)
+  color: var(--secondary-sand);
 }
 
 .trade-btn {
@@ -882,7 +873,7 @@ nav {
 }
 
 .sell-card-quantity {
- color: var(--accent-green);
+  color: var(--accent-green);
 }
 
 .sell-card-price {
@@ -909,7 +900,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
@@ -925,7 +916,7 @@ input[type=number] {
   font-size: 1.125rem;
   font-weight: 600;
   background: var(--primary-blue);
-  color: var(--accent-ice);  
+  color: var(--accent-ice);
 }
 
 .no-share {
@@ -943,9 +934,6 @@ input[type=number] {
 }
 
 /* Sell SEND ------------------------------------ */
-
-
-
 
 /* Learn START ------------------------------------ */
 
@@ -968,10 +956,7 @@ input[type=number] {
 
 /* Learn END ------------------------------------ */
 
-
-
 @media screen and (max-width: 375px) {
-
   .logo {
     font-size: 1.75rem;
     font-style: normal;
@@ -992,7 +977,7 @@ input[type=number] {
     padding: 0.625rem;
     gap: 0.625rem;
   }
-  
+
   .signout-btn {
     display: flex;
     width: 4.25rem;
@@ -1021,9 +1006,7 @@ input[type=number] {
   }
 }
 
-
 @media screen and (min-width: 500px) {
-
   .welcome-text {
     display: flex;
     width: 74%;
@@ -1042,7 +1025,6 @@ input[type=number] {
   }
 }
 
-
 @media screen and (min-width: 600px) {
   .userhome-layout {
     padding-top: 30%;
@@ -1056,7 +1038,6 @@ input[type=number] {
     padding-top: 22%;
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .userhome-layout {
@@ -1072,9 +1053,7 @@ input[type=number] {
   }
 }
 
-
 @media screen and (min-width: 926px) {
-
   /* Global START */
 
   .learn-layout {
@@ -1087,7 +1066,6 @@ input[type=number] {
     padding: 1rem 3rem;
     justify-content: space-between;
     align-items: flex-start;
-
   }
 
   /* Global END */
@@ -1100,14 +1078,14 @@ input[type=number] {
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
   }
-  
+
   .logo {
     display: flex;
     justify-content: center;
@@ -1117,7 +1095,7 @@ input[type=number] {
     font-weight: 900;
     color: var(--secondary-sand);
   }
-  
+
   .btn-layout {
     display: flex;
     width: 60%;
@@ -1132,7 +1110,7 @@ input[type=number] {
     font-size: 1.125rem;
     font-weight: 400;
   }
-  
+
   .signout-btn {
     width: 8.75rem;
     height: 2.5rem;
@@ -1158,7 +1136,7 @@ input[type=number] {
     color: var(--primary-navy);
     background: var(--accent-teal);
   }
-  
+
   .welcome-text {
     display: flex;
     width: 100%;
@@ -1169,183 +1147,171 @@ input[type=number] {
     font-weight: 600;
     color: var(--accent-slate);
   }
-  
 
- /* Navbar END */
+  /* Navbar END */
 
+  /* Signin START */
 
- /* Signin START */
+  .auth-btn {
+    width: 23.75rem;
+  }
 
-.auth-btn {
-  width: 23.75rem;
-}
+  /* Signin END */
 
- /* Signin END */
+  /* Default Home START */
 
+  .default-layout {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    margin-top: 10%;
+    justify-content: center;
+    padding: 1.25rem 3.75rem;
+    align-items: flex-start;
+    gap: 10%;
+    flex-wrap: nowrap;
+    margin-inline: auto;
+  }
 
+  .left {
+    display: flex;
+    /* width: 80%; */
+    padding: 0 1.875rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.25rem;
+  }
 
-/* Default Home START */
+  .date {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.75rem;
+  }
 
-.default-layout {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  height: 100%;
-  margin-top: 10%;
-  justify-content: center;
-  padding: 1.25rem 3.75rem;
-  align-items: flex-start;
-  gap: 10%;
-  flex-wrap: nowrap;
-  margin-inline: auto
-}
+  .signin-prompt {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
 
-.left {
-  display: flex;
-  /* width: 80%; */
-  padding: 0rem 1.875rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2.25rem;
-}
+  .card-layout {
+    display: flex;
+    min-width: 50%;
+    padding: 1rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
 
-.date {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  font-size: 1.75rem;
-}
+  .card-title {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+  }
 
-.signin-prompt {
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.25rem;
-  font-weight: 500;
-}
+  .card-item-layout {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    row-gap: 0.625rem;
+    flex-wrap: wrap;
+  }
 
-.card-layout {
-  display: flex;
-  min-width: 50%;
-  padding: 1rem 1rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
+  .card-item__header-symbol {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
 
-.card-title {
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 600;  
-}
+  .card-item__header-name {
+    font-size: 1rem;
+  }
 
-.card-item-layout {
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  row-gap: 0.625rem;
-  flex-wrap: wrap;
-}
+  .card-item__price-red {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
 
-.card-item__header-symbol {
-  font-size: 1.25rem;
-  font-weight: 600;  
-}
+  .card-item__price-green {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
 
-.card-item__header-name {
-  font-size: 1rem;
-}
+  .card-item__change {
+    font-size: 1rem;
+  }
 
-.card-item__price-red {
-  font-size: 1.25rem;
-  font-weight: 600;  
-}
+  /* Default Home END */
 
-.card-item__price-green {
-  font-size: 1.25rem;
-  font-weight: 600;  
-}
+  /* User Home START */
 
-.card-item__change {
-  font-size: 1rem;
-}
+  .userhome-layout {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    padding: 0 3.75rem;
+    padding-top: 14%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-inline: auto;
+    gap: 2%;
+  }
 
+  .userhome-left {
+    display: flex;
+    /* width: 44%; */
+    /* padding: 10%; */
+    padding: 0 1.875rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
 
-/* Default Home END */
+  .balance-title {
+    font-size: 1.25rem;
+  }
 
+  .balance-amount {
+    font-size: 1.5rem;
+  }
 
+  .capital-info-layout {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0.625rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.625rem;
+  }
 
-/* User Home START */
+  .capital-title {
+    font-size: 1rem;
+    width: 40%;
+  }
 
-.userhome-layout {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  height: 100%;
-  padding: 0 3.75rem;
-  padding-top: 14%;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-inline: auto;
-  gap: 2%;
-}
+  .capital-amount {
+    font-size: 1rem;
+    width: 40%;
+  }
 
-.userhome-left {
-  display: flex;
-  /* width: 44%; */
-  /* padding: 10%; */
-  padding: 0rem 1.875rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.25rem;
-}
+  /* User Home END */
 
-.balance-title {
-  font-size: 1.25rem;
-}
+  /* Single START */
 
-.balance-amount {
-  font-size: 1.5rem;
-}
+  .single-stock__meta-layout {
+    width: 80%;
+  }
 
-.capital-info-layout {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  padding: 0.625rem;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.625rem;
-}
+  /* Single END */
 
-.capital-title {
-  font-size: 1rem;
-  width: 40%;
-}
+  /* Sell START */
 
-.capital-amount {
-  font-size: 1rem;
-  width: 40%;
-}
-
-
-/* User Home END */
-
-
-/* Single START */
-
-.single-stock__meta-layout {
-  width: 80%;
-}
-
-
-/* Single END */
-
-/* Sell START */
-
-
-/* Sell END */
-
+  /* Sell END */
 }
 
 @media screen and (min-width: 2000px) {
@@ -1361,4 +1327,3 @@ input[type=number] {
     padding: 10%;
   }
 }
-

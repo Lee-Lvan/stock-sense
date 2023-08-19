@@ -20,14 +20,14 @@ const Navbar = () => {
     if (pathname === '/learn') {
       setTrade(false);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <nav>
       <div className="header">
         <h1 className="logo">StockSense</h1>
         <div className="btn-layout">
-        {session &&
+          {session &&
             (trade ? (
               <Link href={'/learn'}>
                 <button onClick={() => setTrade(!trade)} className="mode-btn">
@@ -53,7 +53,9 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {session && <p className="welcome-text">Welcome {session.user?.email} !</p>}
+      {session && (
+        <p className="welcome-text">Welcome {session.user?.email} !</p>
+      )}
     </nav>
   );
 };
