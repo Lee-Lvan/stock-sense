@@ -7,4 +7,5 @@ export type HoldingsT = {
   quantity: number;
   buyPrice: string;
   totalPrice: string;
+  currentWorth: number;
 };
