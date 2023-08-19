@@ -35,9 +35,7 @@ const Symbol = ({ params }: { params: { slug: string } }) => {
       {
         name: 'candlestick',
         data: values.reverse().map((item: ValuesT) => {
-          // console.log(item.datetime);
           return {
-            // x: new Date(item.datetime),
             x: item.datetime,
             y: [item.open, item.high, item.low, item.close],
           };
