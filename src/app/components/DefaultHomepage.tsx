@@ -4,27 +4,31 @@ import { IStock } from '../interfaces/IStock';
 import { getWatchlistData } from '../utils/twelvedata';
 import WatchlistItem from './WatchlistItem';
 import Link from 'next/link';
+import { CompanyData } from '../types/CompanyData.type';
 
-const DefaultHomepage = ({ defaultData }) => {
+type DefaultHomepageProps = {
+  defaultData: string;
+};
+
+const DefaultHomepage: React.FC<DefaultHomepageProps> = ({ defaultData }) => {
   const [results, setResults] = useState<IStock[]>([]);
 
-  console.log(results);
   const handleSetQuery = async (query: string) => {
     const response = await fetch(`/api/symbols?query=${query}`);
     const symbols = await response.json();
     setResults(symbols);
   };
 
-  const [watchlist, setWatchlist] = useState([]);
+  const [watchlist, setWatchlist] = useState<CompanyData[]>([]);
 
   useEffect(() => {
     const fetchDefaultWatchlist = async () => {
       const response = await getWatchlistData(defaultData);
-      const defaultWatchlist = Object.values(response);
+      const defaultWatchlist: CompanyData[] = Object.values(response);
       setWatchlist(defaultWatchlist);
     };
     fetchDefaultWatchlist();
-  }, []);
+  }, [defaultData]);
 
   const getFormattedDate = () => {
     const daysOfWeek = [
@@ -76,10 +80,17 @@ const DefaultHomepage = ({ defaultData }) => {
           {results && (
             <ul className="search-results">
               {results
-                .filter(item => item.exchange === 'NASDAQ' || item.exchange === 'NYSE')
+                .filter(
+                  item =>
+                    item.exchange === 'NASDAQ' || item.exchange === 'NYSE',
+                )
                 .reverse()
                 .map((item: IStock) => (
-                  <Link href={`/${item.symbol}`} className="single-result-layout" key={item._id}>
+                  <Link
+                    href={`/${item.symbol}`}
+                    className="single-result-layout"
+                    key={item._id}
+                  >
                     <li className="single-search-result">
                       <p className="symbol">{item.symbol}</p>
                       <p className="name">{item.name}</p>
@@ -89,19 +100,6 @@ const DefaultHomepage = ({ defaultData }) => {
                 ))}
             </ul>
           )}
-          {/* {results && (
-            <ul className='search-results'>
-              {results.reverse().map((item: IStock) => (
-                 <Link href={`/${item.symbol}`} className='single-result-layout'>
-                <li key={item._id} className='single-search-result'>
-                    <p className="symbol">{item.symbol}</p>
-                    <p className="name">{item.name}</p>
-                    <p className="exhange">{item.exchange}</p>
-                </li>
-                  </Link>
-              ))}
-            </ul>
-          )} */}
         </div>
         <p className="signin-prompt">
           <Link href={'/signin'} className="signin-text">
