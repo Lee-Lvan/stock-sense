@@ -4,14 +4,28 @@ import Watchlistitem from '../../models/watchlistItemsModel';
 import getDefaultWatchlist from '../watchlist/getDefaultWatchlist';
 import { ObjectId } from 'mongodb';
 import { HoldingsT } from '@/app/types/Holdings.type';
-import { Readable } from 'stream';
+import mongoose from 'mongoose';
+
+const uri = process.env.MONGO_URI as string;
+
+export const connectToMongo = async () => {
+  try {
+    await mongoose.connect(uri);
+    console.log('connected to db');
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const GET = async (req: NextRequest) => {
   try {
+    await connectToMongo();
     const params = req.nextUrl.searchParams.get('query') as string;
+    console.log(params);
     const response = await User.findOne({ email: params }).populate(
       'watchlist',
     );
+    console.log(response);
     if (response) {
       return NextResponse.json(response);
     } else {
@@ -32,6 +46,7 @@ export const GET = async (req: NextRequest) => {
 };
 
 export const PUT = async (req: NextRequest) => {
+  await connectToMongo();
   try {
     const email = req.nextUrl.searchParams.get('user') as string;
     const chunks: Uint8Array[] = [];
