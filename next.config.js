@@ -4,13 +4,13 @@ const nextConfig = {
     serverActions: true,
   },
   env: {
-    GITHUB_ID: process.env.NEXT_PUBLIC_GITHUB_ID,
-    GITHUB_SECRET: process.env.NEXT_PUBLIC_GITHUB_SECRET,
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET,
 
-    GOOGLE_ID: process.env.NEXT_PUBLIC_GOOGLE_ID,
-    GOOGLE_SECRET: process.env.NEXT_PUBLIC_GOOGLE_SECRET,
+    GOOGLE_ID: process.env.GOOGLE_ID,
+    GOOGLE_SECRET: process.env.GOOGLE_SECRET,
 
-    API_KEY: process.env.NEXT_PUBLIC_API_KEY,
+    API_KEY: process.env.API_KEY,
   },
 };
 
