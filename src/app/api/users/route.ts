@@ -10,11 +10,9 @@ export const GET = async (req: NextRequest) => {
   try {
     await connectToMongo();
     const params = req.nextUrl.searchParams.get('query') as string;
-    console.log(params);
     const response = await User.findOne({ email: params }).populate(
       'watchlist',
     );
-    console.log(response);
     if (response) {
       return NextResponse.json(response);
     } else {

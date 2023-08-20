@@ -61,17 +61,12 @@ const Sell = () => {
     }
 
     for (let i = 0; i < transactionIdsData.length; i++) {
-      console.log(i);
       transactionData.push({
         _id: transactionIdsData[i].value,
         sharesToSell: sellQuantityData[i].value,
         currentPrice: companyData?.close,
       });
-      console.log(transactionIdsData[i].value);
-      console.log(sellQuantityData[i].value);
     }
-
-    console.log(transactionData);
     await axios.put(`/api/users?user=${session?.user?.email}`, transactionData);
     router.push(`/`);
   };

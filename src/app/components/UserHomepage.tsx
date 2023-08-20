@@ -94,7 +94,6 @@ const UserHomepage = () => {
     }
     userData?.holdings.map((item, index) => {
       item.currentWorth = totalValues[index];
-      console.log(item.currentWorth);
     });
     let accountBalance = 0;
     for (let i = 0; i < totalValues.length; i++) {
