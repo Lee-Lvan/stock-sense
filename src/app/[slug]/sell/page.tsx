@@ -99,7 +99,6 @@ const Sell = () => {
                         name="_id"
                         value={item._id.toString()}
                       />
-
                       <article className="sell-card__layout">
                         <div className="sell-card-header__layout">
                           <h3 className="sell-card-symbol">{item.name}</h3>
