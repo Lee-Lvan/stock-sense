@@ -7,7 +7,6 @@ type WatchlistItemProps = {
 };
 
 const WatchlistItem: React.FC<WatchlistItemProps> = ({ item }) => {
-  console.log(item);
   return (
     <Link href={`/${item.symbol}`} className="card-item-layout">
       <article className="card-item">

@@ -94,7 +94,6 @@ const UserHomepage = () => {
     }
     userData?.holdings.map((item, index) => {
       item.currentWorth = totalValues[index];
-      console.log(item.currentWorth);
     });
     let accountBalance = 0;
     for (let i = 0; i < totalValues.length; i++) {
@@ -211,7 +210,11 @@ const UserHomepage = () => {
                       USD
                     </p>
                   )}
-                  <p className="card-item__change">{portfolioPercentage} %</p>
+                  <p className="card-item__change">
+                    {portfolioPercentage === '-Infinity'
+                      ? '0 %'
+                      : `${portfolioPercentage} %`}
+                  </p>
                 </div>
               </div>
               <div className="capital-info-layout">

@@ -53,9 +53,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {session && (
-        <p className="welcome-text">Welcome {session.user?.email} !</p>
-      )}
+      {session && <p className="welcome-text">Welcome {session.user?.name}</p>}
     </nav>
   );
 };

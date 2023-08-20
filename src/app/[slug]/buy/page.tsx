@@ -56,7 +56,7 @@ const Buy = () => {
       await axios.put(`/api/users?user=${session.user.email}`, transactionData);
       router.push(`/`);
     } catch (error) {
-      console.log('Error updating user holdings -->', error);
+      console.error('Error updating user holdings -->', error);
     }
   };
 
