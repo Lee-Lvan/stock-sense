@@ -113,7 +113,7 @@ const UserHomepage = () => {
 
   const cash = userData?.cash ?? 0;
   const portfolioPercentage = (
-    ((+cash.toFixed(2) + investmentTotal - 10000) / investmentTotal) *
+    ((+cash.toFixed(2) + investmentTotal - 10000) / 10000) *
     100
   ).toFixed(2);
 
