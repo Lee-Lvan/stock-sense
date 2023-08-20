@@ -210,7 +210,11 @@ const UserHomepage = () => {
                       USD
                     </p>
                   )}
-                  <p className="card-item__change">{portfolioPercentage} %</p>
+                  <p className="card-item__change">
+                    {portfolioPercentage === '-Infinity'
+                      ? '0 %'
+                      : `${portfolioPercentage} %`}
+                  </p>
                 </div>
               </div>
               <div className="capital-info-layout">
