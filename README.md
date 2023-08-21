@@ -39,9 +39,10 @@ This app was built by [Lee Sheppard](https://www.linkedin.com/in/leesheppard244)
   - 1 Month
   - 3 Months
   - 1 Year
+  
   Here, if the user is logged in, they will be able to buy the stock, and if they already own some, here they can sell them as well.
   
-- **Real-time Data**: The data for all the stocks available is supplied by Twelve Data. Each page reload generates a new API call making sure that the users will have the real time price when they are using the app.
+- **Real-time Data**: The data for all the stocks available is supplied by [Twelve Data](https://twelvedata.com/). Each page reload generates a new API call making sure that the users will have the real time price when they are using the app.
 
 <br>
 
@@ -152,16 +153,3 @@ This app was built by [Lee Sheppard](https://www.linkedin.com/in/leesheppard244)
   <img width="369" alt="hifi-stock-chart" src="https://github.com/Lee-Lvan/stock-sense/assets/62091613/36db667f-70e8-4569-8f97-2aa4a42ad29a">
 </details>
 
-
-<!--
-Lees' [GitHub](https://github.com/coolusername244)
-
-Lees' [LinkedIn](https://www.linkedin.com/in/leesheppard244)
-<br>
-
-Lvans' [GitHub](https://github.com/lvan-ni)
-
-Lvans' [LinkedIn](https://www.linkedin.com/in/lvan-ni/)
-
-
--->
