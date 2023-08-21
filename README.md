@@ -33,7 +33,9 @@ This app was built by [Lee Sheppard](https://www.linkedin.com/in/leesheppard244)
 
   Users are able to search for stocks via the Searchbar on the default and user homepage. As they type, they will see search suggestions of stocks from the NYSE and NASDAQ. If they click on any of the results, they will be taken to the stock chart.
 
-- **Stock Charts**: Implemented via ApexCharts, users are able to see the stock data in the form of a candlestick chart for timeframes:
+- **Stock Charts**
+
+  Implemented via ApexCharts, users are able to see the stock data in the form of a candlestick chart for timeframes:
   - 1 Day
   - 1 Week
   - 1 Month
@@ -42,7 +44,9 @@ This app was built by [Lee Sheppard](https://www.linkedin.com/in/leesheppard244)
   
   Here, if the user is logged in, they will be able to buy the stock, and if they already own some, here they can sell them as well.
   
-- **Real-time Data**: The data for all the stocks available is supplied by [Twelve Data](https://twelvedata.com/). Each page reload generates a new API call making sure that the users will have the real time price when they are using the app.
+- **Real-time Data**
+
+  The data for all the stocks available is supplied by [Twelve Data](https://twelvedata.com/). Each page reload generates a new API call making sure that the users will have the real time price when they are using the app.
 
 <br>
 
